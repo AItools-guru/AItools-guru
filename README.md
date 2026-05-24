@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animated Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Saurabh%20Shidhore&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Project/ Product%20Manager%20%7C%20Analytics%20Engineer%20%7C%20MS/MBA&descSize=18&descAlignY=52" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Saurabh%20Shidhore&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Data%20Analyst%20%7C%20Analytics%20Engineer%20%7C%20MBA&descSize=18&descAlignY=52" width="100%"/>
 
 <!-- Typing Animation (Height increased to 150 to prevent vertical cut-off of the 4th line) -->
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=600&height=150&lines=Bridging+Data+%26+Business+Strategy+%F0%9F%93%8A;Automating+Complex+Pipelines+with+Python+%F0%9F%90%8D;Writing+Production-Grade+SQL+Analytics+%E2%9A%A1;Building+Interactive+BI+Dashboards+%F0%9F%9A%80" alt="Typing SVG" /></a>
