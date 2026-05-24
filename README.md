@@ -85,8 +85,8 @@ fun_fact: If a task has to be performed manually more than twice, I build a pipe
 
 <div align="center">
 
-[![Saurabh's GitHub Stats](https://github-readme-stats.vercel.app/api?username=AItools-guru&show_icons=true&theme=github_dark&border_color=30363d&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&include_all_commits=true&count_private=true&cache_seconds=86400)](https://github.com/anuraghazra/github-readme-stats)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AItools-guru&layout=compact&theme=github_dark&border_color=30363d&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8&cache_seconds=86400)](https://github.com/anuraghazra/github-readme-stats)
+[![Saurabh's GitHub Stats](https://github-readme-stats-eight.vercel.app/api?username=AItools-guru&show_icons=true&theme=github_dark&border_color=30363d&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&include_all_commits=true&count_private=true&cache_seconds=86400)](https://github.com/AItools-guru)
+[![Top Langs](https://github-readme-stats-eight.vercel.app/api/top-langs/?username=AItools-guru&layout=compact&theme=github_dark&border_color=30363d&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8&cache_seconds=86400)](https://github.com/AItools-guru)
 
 </div>
 
