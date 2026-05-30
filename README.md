@@ -33,15 +33,6 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 ---
 
-## 🏆 Open Source Trophies
-
-<div align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=AItools-guru&theme=dracula&no-bg=true&no-frame=true&column=6&margin-w=15" alt="github profile trophy" />
-  </a>
-</div>
-
----
 
 ## 🛠️ Tech Stack
 
@@ -54,10 +45,22 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 <br>
 
-#### Data Science & Visualization
-<a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=pandas,numpy,tableau,excel,gcp&perline=5" />
-</a>
+#### Data Science & Analytics
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square&logo=plotly&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=google-cloud&logoColor=white)
+
+<br>
+
+#### Business Intelligence & Analytics Strategy
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![Tableau](https://img.shields.io/badge/Tableau-E97627?style=flat-square&logo=tableau&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white)
+![Google Sheets](https://img.shields.io/badge/Google_Sheets-34A853?style=flat-square&logo=googlesheets&logoColor=white)
 
 <br>
 
