@@ -90,7 +90,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
         <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
       </p>
-      <a href="./sales-performance-dashboard">📂 Explore Code</a> | <a href="https://github.com/AItools-guru">🚀 Live Dashboard</a>
+      <a href="https://github.com/AItools-guru/sales-performance-dashboard">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-dashboard/prototype/">🚀 Live Dashboard</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
       <h3>⚙️ Crypto ETL Pipeline</h3>
@@ -101,7 +101,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
         <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
       </p>
-      <a href="./crypto-etl-pipeline">📂 Explore Code</a> | <a href="https://github.com/AItools-guru">⚙️ Pipeline Status</a>
+      <a href="https://github.com/AItools-guru/crypto-etl-pipeline">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/crypto-etl-pipeline/blob/main/main.py">⚙️ Pipeline Orchestration</a>
     </td>
   </tr>
   <tr>
@@ -114,7 +114,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
         <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" />
       </p>
-      <a href="./sales-performance-portfolio">📂 Explore Code</a> | <a href="https://github.com/AItools-guru">🚀 Launch App</a>
+      <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Launch App</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117; align-items: center; justify-content: center; text-align: center;">
       <br><br>
