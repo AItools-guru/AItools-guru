@@ -125,11 +125,52 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
       </p>
       <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Launch App</a>
     </td>
-    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117; align-items: center; justify-content: center; text-align: center;">
-      <br><br>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>📈 KPI Dashboard</h3>
+      <p><strong>Python Metrics Visualization Toolkit</strong></p>
+      <p>Interactive sales and operational tracking dashboard built entirely in Python, converting raw metrics into actionable growth summaries.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
+        <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
+        <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" />
+        <img src="https://img.shields.io/badge/Matplotlib-11557C?style=flat-square&logo=plotly&logoColor=white" />
+      </p>
+      <a href="https://github.com/AItools-guru/kpi-dashboard-python">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/kpi-dashboard-python">📈 Launch Dashboard</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>⚡ SQL Sales Analytics</h3>
+      <p><strong>Advanced Relational Database Queries</strong></p>
+      <p>Robust database modeling, cohort analyses, customer retention metrics, and sales trend diagnostics using structured SQL queries.</p>
+      <p>
+        <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/Cohort_Analysis-Analytics-orange?style=flat-square" />
+        <img src="https://img.shields.io/badge/Data_Modeling-Star_Schema-green?style=flat-square" />
+      </p>
+      <a href="https://github.com/AItools-guru/sql-sales-analytics">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/sql-sales-analytics">⚡ View Analytics</a>
+    </td>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>📅 Budget Tracker</h3>
+      <p><strong>Advanced Excel Financial Planner</strong></p>
+      <p>A high-detail spreadsheet financial tracker modeling monthly income allocations, dynamic expense logs, and automated chart scorecards.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
+        <img src="https://img.shields.io/badge/VBA%20%7C%20Macros-Automation-orange?style=flat-square" />
+        <img src="https://img.shields.io/badge/Finance-Modeling-green?style=flat-square" />
+        <img src="https://img.shields.io/badge/Excel-Charts-blue?style=flat-square" />
+      </p>
+      <a href="https://github.com/AItools-guru/budget-tracker-excel">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/budget-tracker-excel">📥 Download Sheet</a>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="middle" style="border: 1px solid #30363d; border-radius: 8px; padding: 20px; background: #0d1117; text-align: center;">
+      <br>
       <h4>💡 Have an Opportunity?</h4>
-      <p>I'm ready to bring data-driven efficiency, strategy, and technical automation to your team.</p>
-      <a href="mailto:s.shidhore05@gmail.com"><strong>📧 Get In Touch</strong></a>
+      <p>I'm ready to bring data-driven efficiency, strategic BI insights, and technical automation to your team.</p>
+      <a href="mailto:s.shidhore05@gmail.com"><strong>📧 Get In Touch (s.shidhore05@gmail.com)</strong></a>
     </td>
   </tr>
 </table>
