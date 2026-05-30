@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Modern Animated Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Saurabh%20Shidhore&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Project%20%26%20Product%20Management%20%7C%20AI%20%26%20Analytics%20%7C%20MS%20%26%20MBA&descSize=18&descAlignY=52" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=6,11,20&amp;height=180&amp;section=header&amp;text=Saurabh%20Shidhore&amp;fontSize=42&amp;fontColor=fff&amp;animation=twinkling&amp;fontAlignY=32&amp;desc=Project%20and%20Product%20Management%20%7C%20AI%20and%20Analytics%20%7C%20MS%20and%20MBA&amp;descSize=18&amp;descAlignY=52&amp;v=4" width="100%"/>
 
 <!-- Typing Animation -->
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=600&height=150&lines=Bridging+Data+%26+Business+Strategy+%F0%9F%93%8A;Automating+Complex+Pipelines+with+Python+%F0%9F%90%8D;Writing+Production-Grade+SQL+Analytics+%E2%9A%A1;Building+Interactive+BI+Dashboards+%F0%9F%9A%80" alt="Typing SVG" /></a>
@@ -194,6 +194,6 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 ### *"Data is the new oil, but only if you refine it."*
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=6,11,20&amp;height=100&amp;section=footer&amp;v=4" width="100%"/>
 
 </div>
