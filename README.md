@@ -86,9 +86,12 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
       <p><strong>Interactive BI Strategy Platform</strong></p>
       <p>An end-to-end sales analytics system using Power BI / Tableau to diagnose conversion bottlenecks and performance trends.</p>
       <p>
+        <img src="https://img.shields.io/badge/Salesforce-00A1E0?style=flat-square&logo=salesforce&logoColor=white" />
         <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" />
         <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
         <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/DAX-orange?style=flat-square" />
+        <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white" />
       </p>
       <a href="https://github.com/AItools-guru/sales-performance-dashboard">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-dashboard/prototype/">🚀 Live Dashboard</a>
     </td>
@@ -98,8 +101,11 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
       <p>Production-ready ETL pipeline extracting real-time market data, validating schema integrity, and loading it into analytical storage.</p>
       <p>
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+        <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
         <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+        <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+        <img src="https://img.shields.io/badge/REST_API-8CC83F?style=flat-square&logo=coingecko&logoColor=white" />
       </p>
       <a href="https://github.com/AItools-guru/crypto-etl-pipeline">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/crypto-etl-pipeline/blob/main/main.py">⚙️ Pipeline Orchestration</a>
     </td>
@@ -110,9 +116,12 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
       <p><strong>Product Management & Analytics Showcase</strong></p>
       <p>Detailed analysis mapping operational metrics to strategic business outcomes. Perfect for demonstrating technical leadership.</p>
       <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
         <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
         <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
         <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" />
+        <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" />
+        <img src="https://img.shields.io/badge/Agile%20%7C%20Scrum-0052CC?style=flat-square&logo=jira&logoColor=white" />
       </p>
       <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Launch App</a>
     </td>
