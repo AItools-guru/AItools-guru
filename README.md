@@ -6,8 +6,9 @@
 <!-- Typing Animation -->
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=600&height=150&lines=Bridging+Data+%26+Business+Strategy+%F0%9F%93%8A;Automating+Complex+Pipelines+with+Python+%F0%9F%90%8D;Writing+Production-Grade+SQL+Analytics+%E2%9A%A1;Building+Interactive+BI+Dashboards+%F0%9F%9A%80" alt="Typing SVG" /></a>
 
-<!-- Profile Views & Achievements -->
-<img src="https://komarev.com/ghpvc/?username=AItools-guru&label=Profile%20Views&color=58a6ff&style=flat-square" alt="Profile views"/>
+<!-- Profile Status & Achievements -->
+<img src="https://img.shields.io/badge/Status-Open_to_Opportunities-success?style=for-the-badge&logo=workplace&logoColor=white" alt="Open to Opportunities"/>
+<img src="https://komarev.com/ghpvc/?username=AItools-guru&label=Profile%20Views&color=58a6ff&style=for-the-badge" alt="Profile views"/>
 
 </div>
 
@@ -33,8 +34,29 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 ---
 
+## 🔨 Currently Building
+
+> **10 AI & Data Operations Projects in 10 Days Sprint** 🚀
+> *Active tracking of high-intensity operational and generative AI builds.*
+
+<div align="left">
+  <strong>Overall Progress: 60%</strong>
+  <img src="https://geps.dev/progress/60" alt="Progress Bar" width="100%"/>
+</div>
+
+- [x] **Day 1-2:** Sales Performance BI Dashboard & ETL Pipelines 📊
+- [x] **Day 3-4:** Crypto Automated Data Integration (Docker + SQLite) ⚙️
+- [x] **Day 5-6:** Enterprise AI Decision Playbook & ROI Simulator 🧠
+- [x] **Day 7-8:** GenAI Meeting Summarizer & Action Item Extractor (Anthropic/Gemini) 🎙️
+- [ ] **Day 9-10:** Automated PM Copilot & Multi-Agent Analytics Reporter 🤖
+
+---
 
 ## 🛠️ Tech Stack
+
+<details>
+<summary><b>🛠️ Click to expand full Technologies, Languages & BI Tools</b></summary>
+<br>
 
 <div align="center">
 
@@ -73,6 +95,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white)
 
 </div>
+</details>
 
 ---
 
@@ -82,6 +105,19 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 <table width="100%" style="border-collapse: collapse; border: none;">
   <tr>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>🧠 Enterprise AI Playbook</h3>
+      <p><strong>GenAI Strategy & ROI Platform</strong></p>
+      <p>Interactive dashboard and decision-support simulator calculating LLM implementation ROI and hosting a system prompt library for 6 roles.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+        <img src="https://img.shields.io/badge/Mermaid-blue?style=flat-square" />
+      </p>
+      <a href="https://github.com/AItools-guru/enterprise-ai-playbook">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/enterprise-ai-playbook/prototype/">🚀 Live Simulator</a>
+    </td>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
       <h3>📊 Sales Performance Dashboard</h3>
       <p><strong>Interactive BI Strategy Platform</strong></p>
       <p>An end-to-end sales analytics system using Power BI / Tableau to diagnose conversion bottlenecks and performance trends.</p>
@@ -90,24 +126,8 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" />
         <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
         <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
-        <img src="https://img.shields.io/badge/DAX-orange?style=flat-square" />
-        <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white" />
       </p>
       <a href="https://github.com/AItools-guru/sales-performance-dashboard">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-dashboard/prototype/">🚀 Live Dashboard</a>
-    </td>
-    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>⚙️ Crypto ETL Pipeline</h3>
-      <p><strong>Automated Data Integration Pipeline</strong></p>
-      <p>Production-ready ETL pipeline extracting real-time market data, validating schema integrity, and loading it into analytical storage.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-        <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
-        <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-        <img src="https://img.shields.io/badge/REST_API-8CC83F?style=flat-square&logo=coingecko&logoColor=white" />
-      </p>
-      <a href="https://github.com/AItools-guru/crypto-etl-pipeline">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/crypto-etl-pipeline/blob/main/main.py">⚙️ Pipeline Orchestration</a>
     </td>
   </tr>
   <tr>
@@ -120,23 +140,20 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
         <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
         <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" />
-        <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" />
-        <img src="https://img.shields.io/badge/Agile%20%7C%20Scrum-0052CC?style=flat-square&logo=jira&logoColor=white" />
       </p>
       <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Launch App</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>📈 KPI Dashboard</h3>
-      <p><strong>Python Metrics Visualization Toolkit</strong></p>
-      <p>Interactive sales and operational tracking dashboard built entirely in Python, converting raw metrics into actionable growth summaries.</p>
+      <h3>⚙️ Crypto ETL Pipeline</h3>
+      <p><strong>Automated Data Integration Pipeline</strong></p>
+      <p>Production-ready ETL pipeline extracting real-time market data, validating schema integrity, and loading it into SQLite storage.</p>
       <p>
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
         <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-        <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" />
-        <img src="https://img.shields.io/badge/Matplotlib-11557C?style=flat-square&logo=plotly&logoColor=white" />
+        <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
       </p>
-      <a href="https://github.com/AItools-guru/kpi-dashboard-python">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/kpi-dashboard-python">📈 Launch Dashboard</a>
+      <a href="https://github.com/AItools-guru/crypto-etl-pipeline">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/crypto-etl-pipeline/blob/main/main.py">⚙️ Explore Script</a>
     </td>
   </tr>
   <tr>
@@ -148,9 +165,8 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
         <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
         <img src="https://img.shields.io/badge/Cohort_Analysis-Analytics-orange?style=flat-square" />
-        <img src="https://img.shields.io/badge/Data_Modeling-Star_Schema-green?style=flat-square" />
       </p>
-      <a href="https://github.com/AItools-guru/sql-sales-analytics">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/sql-sales-analytics">⚡ View Analytics</a>
+      <a href="https://github.com/AItools-guru/sql-sales-analytics">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/sql-sales-analytics/blob/main/queries.sql">⚡ View Queries</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
       <h3>📅 Budget Tracker</h3>
@@ -158,11 +174,10 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
       <p>A high-detail spreadsheet financial tracker modeling monthly income allocations, dynamic expense logs, and automated chart scorecards.</p>
       <p>
         <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
-        <img src="https://img.shields.io/badge/VBA%20%7C%20Macros-Automation-orange?style=flat-square" />
+        <img src="https://img.shields.io/badge/Automation-VBA-orange?style=flat-square" />
         <img src="https://img.shields.io/badge/Finance-Modeling-green?style=flat-square" />
-        <img src="https://img.shields.io/badge/Excel-Charts-blue?style=flat-square" />
       </p>
-      <a href="https://github.com/AItools-guru/budget-tracker-excel">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/budget-tracker-excel">📥 Download Sheet</a>
+      <a href="https://github.com/AItools-guru/budget-tracker-excel">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/budget-tracker-excel/raw/main/budget_tracker.xlsx">📥 Download Sheet</a>
     </td>
   </tr>
   <tr>
@@ -184,7 +199,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
     <tr>
       <td align="center" valign="top">
         <a href="https://github.com/AItools-guru">
-          <img src="https://github-readme-stats-six.vercel.app/api?username=AItools-guru&show_icons=true&theme=github_dark&border_color=30363d&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&include_all_commits=true&count_private=true&cache_seconds=86400" width="400" />
+          <img src="https://github-readme-stats-six.vercel.app/api?username=AItools-guru&show_icons=true&theme=github_dark&border_color=30363d&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&include_all_commits=true&count_private=true&cache_seconds=86400" width="380" />
         </a>
       </td>
       <td align="center" valign="top">
@@ -199,14 +214,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 <br>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AItools-guru&theme=github-dark-blue&border=30363d&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff6e40&currStreakLabel=58a6ff" height="160"/>
-</div>
-
-<br>
-
-<!-- Activity Graph with Matching Themes -->
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AItools-guru&bg_color=0d1117&color=58a6ff&line=58a6ff&point=ff6e40&area=true&area_color=58a6ff&hide_border=true" width="95%"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AItools-guru&theme=github-dark-blue&border=30363d&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff6e40&currStreakLabel=58a6ff" height="150"/>
 </div>
 
 ---
@@ -229,11 +237,11 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saurabhshidhore/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:s.shidhore05@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-58A6FF?style=flat-square&logo=google-chrome&logoColor=white)](https://github.com/AItools-guru)
+[![Portfolio](https://img.shields.io/badge/Portfolio-58A6FF?style=flat-square&logo=google-chrome&logoColor=white)](https://aitools-guru.github.io)
 
 <br>
 
-### *"Data is the new oil, but only if you refine it."*
+### *"Algorithms are cheap. Pipelines that run without intervention, and metrics that trigger immediate action, are priceless."*
 
 <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=6,11,20&amp;height=100&amp;section=footer&amp;v=4" width="100%"/>
 
