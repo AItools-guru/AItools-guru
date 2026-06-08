@@ -1088,6 +1088,269 @@
                 padding: 4px 8px;
                 font-size: 0.72rem;
             }
+        /* ⚡ ALTERNATING FEATURES SECTION */
+        .features-alt-section {
+            padding: 80px 0;
+        }
+        .features-alt-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        .features-alt-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .features-alt-col {
+            flex: 1;
+        }
+        .features-alt-col h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .features-alt-col p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .features-alt-badge {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            color: #a5b4fc;
+            padding: 6px 12px;
+            border-radius: 99px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .features-alt-row:nth-child(even) .features-alt-badge {
+            background: rgba(6, 182, 212, 0.1);
+            border-color: rgba(6, 182, 212, 0.25);
+            color: #22d3ee;
+        }
+        .feature-visual {
+            background: rgba(15, 23, 42, 0.35);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 📊 COMPARISON TABLE SECTION */
+        .comparison-section {
+            padding: 80px 0;
+            background: rgba(8, 11, 17, 0.4);
+        }
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(12px);
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comparison-table th {
+            background: rgba(8, 11, 17, 0.85);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        .comparison-table th:first-child {
+            width: 35%;
+        }
+        .comparison-table td {
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:hover td {
+            background: rgba(255, 255, 255, 0.015);
+        }
+        .comparison-table td.highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+            background: rgba(249, 115, 22, 0.02);
+        }
+        .comparison-check {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .comparison-cross {
+            color: #ef4444;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* 🏷️ PRICING SECTION */
+        .pricing-section {
+            padding: 80px 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .pricing-card {
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .pricing-card.popular {
+            border-color: rgba(249, 115, 22, 0.45);
+            box-shadow: 0 15px 40px -10px rgba(249, 115, 22, 0.15);
+        }
+        .pricing-card.popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-orange);
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 99px;
+            letter-spacing: 1px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .pricing-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .pricing-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 16px 0;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+        .pricing-price span {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .pricing-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .pricing-features li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: 900;
+        }
+        .pricing-card.popular .pricing-features li::before {
+            color: var(--accent-indigo);
+        }
+        .pricing-card .btn {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        /* 💬 TESTIMONIALS SECTION */
+        .testimonials-section {
+            padding: 80px 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .testimonial-card {
+            padding: 32px;
+        }
+        .testimonial-rating {
+            color: #fbbf24;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-grad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .testimonial-info h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .testimonial-info span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: block;
+        }
+        
+        @media (max-width: 992px) {
+            .pricing-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-alt-row {
+                flex-direction: column !important;
+                gap: 32px;
+            }
         }
     </style>
 </head>
@@ -1230,6 +1493,275 @@
                                     <img src="assets/project_retro.png" alt="Project Retro Dashboard">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ⚡ ALTERNATING FEATURES SECTION -->
+            <section class="features-alt-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>ELITE CAPABILITIES</span>
+                        <h2>Engineered for Modern Product Teams</h2>
+                    </div>
+
+                    <!-- Feature 1 -->
+                    <div class="features-alt-row">
+                        <div class="features-alt-col">
+                            <span class="features-alt-badge">Multi-Modal Input</span>
+                            <h3>Direct Audio &amp; Whiteboard OCR</h3>
+                            <p>No text transcript? No problem. Kall AI leverages Gemini's native multi-hour audio window to transcribe and summarize directly from raw audio files (.mp3, .wav, .m4a). Combine it with whiteboard sketches or slide deck screenshots, and the multi-modal LLM automatically extracts architectural decisions and drawings discussed in the room.</p>
+                            <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
+                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Zero Whisper Dependencies:</span> Native multi-hour audio processing via Gemini API.</li>
+                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Visual Brainstorms:</span> Merges scribbles, whiteboard sticky notes, and diagrams.</li>
+                            </ul>
+                        </div>
+                        <div class="features-alt-col">
+                            <div class="feature-visual glass-card" style="padding: 30px; border-color: rgba(99,102,241,0.25);">
+                                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border-color); padding-bottom:12px; margin-bottom:16px;">
+                                    <span style="font-weight:700; font-size:0.85rem; font-family:'Outfit';">📁 MULTI-MODAL PIPELINE</span>
+                                    <span style="font-size:0.75rem; color:#a5b4fc; font-family:'Fira Code';">active_engine: gemini-1.5-pro</span>
+                                </div>
+                                <div style="display:flex; flex-direction:column; gap:12px;">
+                                    <div style="background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.1); border-radius:8px; padding:16px; text-align:center; cursor:pointer;" onmouseover="this.style.borderColor='var(--accent-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+                                        <span style="font-size:1.5rem; display:block; margin-bottom:6px;">🎙️</span>
+                                        <span style="font-size:0.82rem; font-weight:600; color:var(--text-secondary);">Drop Audio File (.mp3, .wav, .m4a)</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.1); border-radius:8px; padding:16px; text-align:center; cursor:pointer;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+                                        <span style="font-size:1.5rem; display:block; margin-bottom:6px;">🖼️</span>
+                                        <span style="font-size:0.82rem; font-weight:600; color:var(--text-secondary);">Upload Whiteboard / Sketch Images</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="features-alt-row">
+                        <div class="features-alt-col">
+                            <span class="features-alt-badge" style="background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.25); color:#22d3ee;">JSON Validation</span>
+                            <h3>Bulletproof Pydantic Enforcements</h3>
+                            <p>Most AI summarizers dump markdown that breaks when parsed. Kall AI runs strict validation over LLM outputs using structured Pydantic schemas. This ensures your action checklists, speaker statistics, and retro metrics are strictly typed (lists, strings, and integers) before building the interface. Zero broken elements, guaranteed.</p>
+                            <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
+                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Strict Datatypes:</span> Enforces exact formats for tasks, owners, and velocities.</li>
+                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Zero Hallucinations:</span> Pydantic filters out unstructured metadata automatically.</li>
+                            </ul>
+                        </div>
+                        <div class="features-alt-col">
+                            <div class="feature-visual glass-card" style="padding: 24px; border-color: rgba(6,182,212,0.25); font-family:'Fira Code', monospace; font-size:0.75rem;">
+                                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border-color); padding-bottom:12px; margin-bottom:12px;">
+                                    <span style="font-weight:700; color:#22d3ee; font-family:'Outfit';">📋 PYDANTIC SCHEMA VALIDATOR</span>
+                                    <span style="color:#22c55e;">● VALID</span>
+                                </div>
+                                <div style="color:#a5b4fc; line-height:1.5;">
+                                    <span style="color:#f43f5e;">class</span> <span style="color:#eab308;">SprintBacklog</span>(BaseModel):<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;tasks: List[TaskItem]<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;velocity_metrics: SprintVelocity<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;decision_log: List[DecisionItem]<br>
+                                    <br>
+                                    <span style="color:#64748b;"># Validation Output:</span><br>
+                                    <span style="color:#22c55e;">{</span><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#22d3ee;">"tasks_parsed"</span>: <span style="color:#eab308;">12</span>,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#22d3ee;">"schema_compliance"</span>: <span style="color:#eab308;">1.00</span><br>
+                                    <span style="color:#22c55e;">}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="features-alt-row">
+                        <div class="features-alt-col">
+                            <span class="features-alt-badge" style="background:rgba(249,115,22,0.1); border-color:rgba(249,115,22,0.25); color:#fdba74;">AI PM Companion</span>
+                            <h3>Context-Aware Copilot Chat</h3>
+                            <p>Query past decisions directly in your private space. Kall AI indexes transcript records so you can ask the PM Copilot about action item blockers, team alignment, or timeline updates. Switch dynamically between Claude 3.5 Sonnet or Gemini 1.5 Pro engines on the fly to get the exact reasoning model you need.</p>
+                            <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
+                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Dynamic LLM Swap:</span> Switch cognitive models without reloading state.</li>
+                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Reference Citations:</span> Pinpoints the exact speaker statement from the transcript.</li>
+                            </ul>
+                        </div>
+                        <div class="features-alt-col">
+                            <div class="feature-visual glass-card" style="padding: 24px; border-color: rgba(249,115,22,0.25);">
+                                <div style="display:flex; align-items:center; gap:8px; border-bottom: 1px solid var(--border-color); padding-bottom:12px; margin-bottom:16px;">
+                                    <span style="font-size:1.25rem;">🤖</span>
+                                    <span style="font-weight:700; font-size:0.85rem; font-family:'Outfit';">PM COPILOT CHAT</span>
+                                </div>
+                                <div style="display:flex; flex-direction:column; gap:12px; font-size:0.82rem;">
+                                    <div style="align-self:flex-end; background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.25); padding:10px; border-radius:10px 10px 0 10px; max-width:85%; color:var(--text-primary);">
+                                        Who is blocked on the database schema migration?
+                                    </div>
+                                    <div style="align-self:flex-start; background:rgba(255,255,255,0.03); border:1px solid var(--border-color); padding:10px; border-radius:10px 10px 10px 0; max-width:85%; color:var(--text-secondary);">
+                                        <strong>Copilot:</strong> Based on the standup transcript, <strong>David</strong> is blocked because he is waiting on the infrastructure team's TLS 1.3 certificate approvals.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 📊 COMPARISON TABLE SECTION -->
+            <section class="comparison-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>THE COMPETITIVE EDGE</span>
+                        <h2>Why Agile Teams Choose Kall AI</h2>
+                    </div>
+
+                    <div class="comparison-table-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature Capability</th>
+                                    <th class="highlight" style="text-align: center;">🎙️ Kall AI v3.0</th>
+                                    <th style="text-align: center;">Notee.ai</th>
+                                    <th style="text-align: center;">Fireflies / Fathom</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Agile Backlog Templates</strong> (Standups, Retros, Discovery)</td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pydantic JSON Verification</strong> (Zero UI breaks)</td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ephemeral Privacy</strong> (No data stored in DB)</td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span> (In-memory)</td>
+                                    <td style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span> (Cloud storage)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Interactive PM Copilot Chatbot</strong></td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                    <td style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Recruiter Sandbox Demo Mode</strong> (No API Key required)</td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Export formats</strong> (CSV, PDF, Markdown reports)</td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span> (Text only)</td>
+                                    <td style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 💬 TESTIMONIALS SECTION -->
+            <section class="testimonials-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>USER REVIEWS</span>
+                        <h2>Loved by Developers &amp; PMs</h2>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <!-- Card 1 -->
+                        <div class="glass-card testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"The Pydantic verification is a game-changer. Other AI summarizers dump unstructured text that I have to format manually. Kall AI gives me a clean, structured Agile backlog instantly."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar" style="background:#f97316;">M</div>
+                                <div class="testimonial-info">
+                                    <h4>Marcus Chen</h4>
+                                    <span>Lead Product Manager</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="glass-card testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"I upload whiteboard screenshots from our planning sessions alongside audio. The multi-modal extraction is incredibly smart at linking diagrams to our standup checklist."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar" style="background:#6366f1;">S</div>
+                                <div class="testimonial-info">
+                                    <h4>Sarah Jenkins</h4>
+                                    <span>Agile Scrum Master</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="glass-card testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"Kall AI's ephemeral privacy model is perfect. Since nothing is stored in databases, our corporate security team approved the sandbox cockpit for client alignments immediately."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar" style="background:#06b6d4;">D</div>
+                                <div class="testimonial-info">
+                                    <h4>David Vance</h4>
+                                    <span>Principal DevOps Architect</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 🏷️ ACCESS PLANS / PRICING SECTION -->
+            <section class="pricing-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>ACCESS TIERS</span>
+                        <h2>Ready to Supercharge Your Workflows?</h2>
+                    </div>
+
+                    <div class="pricing-grid">
+                        <!-- Card 1 -->
+                        <div class="glass-card pricing-card">
+                            <h3>Recruiter Sandbox</h3>
+                            <div class="pricing-price">Free <span>/ forever</span></div>
+                            <p class="pricing-desc">Perfect for recruiters and portfolio evaluators testing the interface cockpit.</p>
+                            <ul class="pricing-features">
+                                <li>No API keys required</li>
+                                <li>Preloaded Sprint Alignment transcripts</li>
+                                <li>Pydantic JSON parser demo</li>
+                                <li>Full PDF &amp; Markdown exports</li>
+                            </ul>
+                            <button onclick="switchTab('login')" class="btn btn-outline">Launch Sandbox</button>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="glass-card pricing-card popular">
+                            <h3>Solo PM / Creator</h3>
+                            <div class="pricing-price">BYOK <span>/ Bring Your Own Key</span></div>
+                            <p class="pricing-desc">Bring your developer key for Claude or Gemini. Zero platform subscription fees.</p>
+                            <ul class="pricing-features">
+                                <li>Secure local browser keychain</li>
+                                <li>Unlimited audio &amp; transcript uploads</li>
+                                <li>Claude 3.5 &amp; Gemini 1.5 engines</li>
+                                <li>Full Speaker Analytics &amp; PM Copilot</li>
+                            </ul>
+                            <button onclick="switchTab('login')" class="btn btn-primary">Start Cockpit</button>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="glass-card pricing-card">
+                            <h3>Secure Enterprise</h3>
+                            <div class="pricing-price">Custom <span>/ Dedicated</span></div>
+                            <p class="pricing-desc">Dedicated host server deployments for teams requiring corporate compliance.</p>
+                            <ul class="pricing-features">
+                                <li>Dedicated private cloud hosting</li>
+                                <li>Jira, Linear &amp; Slack connectors</li>
+                                <li>SSO &amp; active workspace sync</li>
+                                <li>Team velocity analytics</li>
+                            </ul>
+                            <button onclick="switchTab('login')" class="btn btn-outline">Contact Sales</button>
                         </div>
                     </div>
                 </div>
