@@ -109,12 +109,14 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
       <p><strong>Flagship SaaS Product</strong></p>
       <p>Elite meeting transcript refactoring platform with a Granola-style AI Notepad, specialized templates (Sprint, Sales, Retro), agile checklists, speaker analytics, and an interactive PM Copilot.</p>
       <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
         <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
         <img src="https://img.shields.io/badge/Claude_AI-D97706?style=flat-square&logo=anthropic&logoColor=white" />
         <img src="https://img.shields.io/badge/Gemini-8E75C2?style=flat-square&logo=googlegemini&logoColor=white" />
         <img src="https://img.shields.io/badge/Pydantic-FF4B4B?style=flat-square" />
+        <img src="https://img.shields.io/badge/FPDF2-PDF_Export-0052CC?style=flat-square" />
       </p>
-      <a href="https://kall-ai.com">⚡ Live App</a>
+      <a href="https://kall-ai.com">🚀 Launch Live App</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
       <h3>🎥 VidGist: GenAI YouTube Summarizer</h3>
