@@ -114,7 +114,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Gemini-8E75C2?style=flat-square&logo=googlegemini&logoColor=white" />
         <img src="https://img.shields.io/badge/Pydantic-FF4B4B?style=flat-square" />
       </p>
-      <a href="https://github.com/AItools-guru/GenAI-Meeting-Summarizer">📂 Explore Code</a> | <a href="https://kall-ai.com">⚡ Live App</a>
+      <a href="https://kall-ai.com">⚡ Live App</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
       <h3>🎥 VidGist: GenAI YouTube Summarizer</h3>
