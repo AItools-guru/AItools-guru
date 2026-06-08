@@ -518,6 +518,17 @@
             }
             .hero h1 { font-size: 2.4rem; }
             .hero p.lead { font-size: 1.05rem; }
+            .checklist-ul li {
+                grid-template-columns: auto 1fr;
+                gap: 8px;
+            }
+            .checklist-label {
+                grid-column: 2;
+            }
+            .checklist-desc {
+                grid-column: 2;
+                margin-top: 4px;
+            }
         }
 
         .step-node {
@@ -573,20 +584,33 @@
         .checklist-ul {
             list-style: none;
             padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .checklist-ul li {
-            margin-bottom: 12px;
             font-size: 0.92rem;
             color: var(--text-secondary);
-            display: flex;
+            display: grid;
+            grid-template-columns: auto 150px 1fr;
             gap: 12px;
+            align-items: start;
         }
 
         .checklist-ul li::before {
             content: '⚡';
             color: var(--accent-orange);
             font-weight: bold;
+        }
+
+        .checklist-label {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .checklist-desc {
+            color: var(--text-secondary);
         }
 
         .flow-diagram-container {
@@ -1083,11 +1107,26 @@
                     <div class="glass-card guide-details-card">
                         <h3>⚡ App Fast-Track Checklist</h3>
                         <ul class="checklist-ul">
-                            <li><b>Load Data</b>: Click "💡 Load Q3 Sprint Demo Transcript" to auto-fill a complete cross-functional alignment call in State 1.</li>
-                            <li><b>Extract Insights</b>: Click "🚀 Extract Operational Insights" to execute the structured Pydantic parser.</li>
-                            <li><b>Manage Backlogs</b>: Check off action items in the interactive list and add new tasks to update velocity charts dynamically.</li>
-                            <li><b>Inspect Speakers</b>: Check talk-time distributions and search raw records inside the Speaker Analytics dashboard.</li>
-                            <li><b>Consult Copilot</b>: Open the chat pane to query past decisions or milestones using Anthropic/Google LLM reasoning.</li>
+                            <li>
+                                <span class="checklist-label">Load Data :</span>
+                                <span class="checklist-desc">Click "💡 Load Q3 Sprint Demo Transcript" to auto-fill a complete cross-functional alignment call in State 1.</span>
+                            </li>
+                            <li>
+                                <span class="checklist-label">Extract Insights :</span>
+                                <span class="checklist-desc">Click "🚀 Extract Operational Insights" to execute the structured Pydantic parser.</span>
+                            </li>
+                            <li>
+                                <span class="checklist-label">Manage Backlogs :</span>
+                                <span class="checklist-desc">Check off action items in the interactive list and add new tasks to update velocity charts dynamically.</span>
+                            </li>
+                            <li>
+                                <span class="checklist-label">Inspect Speakers :</span>
+                                <span class="checklist-desc">Check talk-time distributions and search raw records inside the Speaker Analytics dashboard.</span>
+                            </li>
+                            <li>
+                                <span class="checklist-label">Consult Copilot :</span>
+                                <span class="checklist-desc">Open the chat pane to query past decisions or milestones using Anthropic/Google LLM reasoning.</span>
+                            </li>
                         </ul>
 
                         <div class="flow-diagram-container">
