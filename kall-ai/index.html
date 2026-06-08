@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kall AI - Meeting Transcripts to Actionable Backlogs, Instantly</title>
+    <meta name="description" content="Kall AI is an elite meeting summarizer and operations cockpit. Turn raw Zoom or Teams transcripts into structured sprint backlogs, speaker analytics, and get assistance from an AI PM Copilot.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern CSS Design Tokens & Reset */
+        :root {
+            --bg-color: #080b11;
+            --card-bg: rgba(15, 23, 42, 0.55);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-grad: linear-gradient(135deg, #f97316 0%, #6366f1 100%);
+            --glow-grad: linear-gradient(90deg, #fdba74, #f97316, #818cf8);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-orange: #f97316;
+            --accent-indigo: #6366f1;
+            --accent-cyan: #06b6d4;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+                #080b11;
+            min-height: 100vh;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .gradient-text {
+            background: var(--glow-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 📋 HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(8, 11, 17, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .logo-orb {
+            font-size: 1.6rem;
+            background: var(--primary-grad);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(249, 115, 22, 0.35);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link.active-tab {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active-tab::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text-primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-orange);
+            background: rgba(249, 115, 22, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--primary-grad);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+            filter: brightness(1.15);
+        }
+
+        /* Main Content wrapper */
+        main {
+            flex: 1;
+            padding-top: 70px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🚀 PAGE SECTIONS / SPA VIEWS */
+        .spa-view {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .spa-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 🏠 HOME VIEW */
+        .hero {
+            padding: 90px 0 60px 0;
+            text-align: center;
+        }
+
+        .hero-badge-wrapper {
+            margin-bottom: 24px;
+            display: inline-flex;
+        }
+
+        .hero-badge {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.35);
+            color: #fdba74;
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-badge span {
+            background: var(--accent-orange);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--accent-orange);
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+
+        .hero p.lead {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 35px auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .hero-ctas .btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+        }
+
+        .hero-subtext {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        /* Notee-style Live Recording Dashboard Player */
+        .mockup-container {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .mockup-glow {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 100px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-indigo));
+            filter: blur(80px);
+            opacity: 0.25;
+            z-index: 1;
+            border-radius: 30px;
+            pointer-events: none;
+        }
+
+        .dashboard-mockup {
+            position: relative;
+            z-index: 2;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.45);
+            box-shadow: 0 25px 60px -15px rgba(0,0,0,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+            text-align: left;
+            padding: 24px;
+        }
+
+        /* Waveform header */
+        .mock-rec-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .mock-rec-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--accent-orange);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .mock-rec-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-red 1.5s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 8px var(--accent-orange); }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        /* Pulsing Audio Waves */
+        .mock-wave {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mock-wave-bar {
+            width: 3px;
+            height: 16px;
+            background: var(--accent-orange);
+            border-radius: 9px;
+            animation: wave-pulse 1.2s ease-in-out infinite;
+        }
+        @keyframes wave-pulse {
+            0%, 100% { height: 6px; }
+            50% { height: 26px; }
+        }
+        .mock-wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .mock-wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .mock-wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .mock-wave-bar:nth-child(5) { animation-delay: 0.4s; }
+        .mock-wave-bar:nth-child(6) { animation-delay: 0.5s; }
+        .mock-wave-bar:nth-child(7) { animation-delay: 0.3s; }
+        .mock-wave-bar:nth-child(8) { animation-delay: 0.2s; }
+        .mock-wave-bar:nth-child(9) { animation-delay: 0.1s; }
+
+        .mock-rec-timer {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .mock-section-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .mock-summary-skeleton {
+            margin-bottom: 24px;
+        }
+
+        .mock-skeleton-line {
+            height: 10px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .mock-skeleton-line.short { width: 75%; }
+        .mock-skeleton-line.shorter { width: 50%; }
+
+        /* Checklist backlog */
+        .mock-backlog-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .mock-backlog-item:hover {
+            background: rgba(249, 115, 22, 0.05);
+            border-color: rgba(249, 115, 22, 0.25);
+        }
+
+        .mock-checkbox {
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            border: 2px solid var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .mock-backlog-item.completed .mock-checkbox {
+            background: var(--accent-orange);
+            border-color: var(--accent-orange);
+        }
+
+        .mock-backlog-item.completed .mock-checkbox::after {
+            content: '✓';
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+
+        .mock-backlog-item.completed span {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .mock-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ⏳ HOW IT WORKS VIEW */
+        .work-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-orange);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .step-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .step-timeline, .features-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p.lead { font-size: 1.05rem; }
+        }
+
+        .step-node {
+            padding: 32px 24px;
+            position: relative;
+            text-align: center;
+        }
+
+        .step-icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+        }
+
+        .step-node h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .step-node p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Expanded checklist inside how it works */
+        .guide-details-card {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            padding: 32px;
+        }
+
+        .guide-details-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist-ul li {
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 12px;
+        }
+
+        .checklist-ul li::before {
+            content: '⚡';
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        .flow-diagram-container {
+            margin-top: 30px;
+            background: rgba(99, 102, 241, 0.03);
+            border: 1px dashed rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.78rem;
+            color: #a5b4fc;
+            line-height: 1.7;
+        }
+
+        /* 📊 USE CASES VIEW */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .use-case-card {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .use-case-icon {
+            font-size: 1.3rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent-orange);
+        }
+
+        .use-case-card:hover .use-case-icon {
+            background: var(--primary-grad);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .use-case-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .use-case-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* 🙋 FAQ VIEW */
+        .faq-wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: transparent;
+            border: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .faq-icon {
+            font-size: 0.8rem;
+            transition: var(--transition-smooth);
+            color: var(--text-muted);
+            font-weight: 800;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0 24px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .faq-item.active {
+            border-color: rgba(249, 115, 22, 0.3);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: var(--accent-orange);
+        }
+
+        /* 🔑 LOGIN / START FREE GATEWAY */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 440px;
+            padding: 32px;
+        }
+
+        .login-logo-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .login-logo-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .login-logo-header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .login-welcome-banner {
+            background: rgba(249, 115, 22, 0.05);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.78rem;
+            color: #fdba74;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        .login-tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition-smooth);
+        }
+
+        .login-tab-btn.active-login {
+            background: rgba(255,255,255,0.08);
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.15);
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-row input {
+            accent-color: var(--accent-orange);
+        }
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin: 20px 0;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .login-divider::before, .login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* Loading Overlay overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(8, 11, 17, 0.92);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(249, 115, 22, 0.15);
+            border-top-color: var(--accent-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* 📋 FOOTER */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            background: #06090e;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            list-style: none;
+        }
+
+        .footer-links button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 0.85rem;
+        }
+
+        .footer-links button:hover {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 📋 HEADER & NAVIGATION -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a onclick="switchTab('home')" class="logo">
+                <span class="logo-orb">🎙️</span>
+                Kall AI
+            </a>
+            
+            <ul class="nav-menu">
+                <li><button onclick="switchTab('how-it-works')" class="nav-link" id="nav-how-it-works">How it works</button></li>
+                <li><button onclick="switchTab('use-cases')" class="nav-link" id="nav-use-cases">Use cases</button></li>
+                <li><button onclick="switchTab('faq')" class="nav-link" id="nav-faq">FAQ</button></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button onclick="switchTab('login')" class="btn btn-primary" id="nav-start-free">
+                    Start free &nbsp;➔
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN VIEWS -->
+    <main>
+        
+        <!-- 🏠 HOME VIEW -->
+        <div class="spa-view active" id="view-home">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-badge-wrapper">
+                        <div class="hero-badge">
+                            <span></span>
+                            Kall AI Operations Cockpit v3.0
+                        </div>
+                    </div>
+                    
+                    <h1>
+                        Your meetings,<br>
+                        <span class="gradient-text">end to end.</span>
+                    </h1>
+                    
+                    <p class="lead">
+                        Prepare before you walk in, get a live assistant while you talk, and walk away with summaries, insights, and follow-ups — all in one place.
+                    </p>
+                    
+                    <div class="hero-ctas">
+                        <button onclick="switchTab('login')" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">
+                            Start free &nbsp;➔
+                        </button>
+                    </div>
+                    <div class="hero-subtext">No credit card required</div>
+
+                    <!-- Notee-style Live Recording Dashboard Player -->
+                    <div class="mockup-container">
+                        <div class="mockup-glow"></div>
+                        <div class="dashboard-mockup">
+                            <div class="mock-rec-row">
+                                <div class="mock-rec-indicator">Recording</div>
+                                <div class="mock-wave">
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                    <div class="mock-wave-bar"></div>
+                                </div>
+                                <div class="mock-rec-timer">02:14</div>
+                            </div>
+                            
+                            <!-- Summary Skeleton -->
+                            <div class="mock-section-label">⚡ SUMMARY</div>
+                            <div class="mock-summary-skeleton">
+                                <div class="mock-skeleton-line"></div>
+                                <div class="mock-skeleton-line short"></div>
+                                <div class="mock-skeleton-line shorter"></div>
+                            </div>
+                            
+                            <!-- Clickable Mock Backlog items -->
+                            <div class="mock-section-label">📋 ACTION ITEMS</div>
+                            
+                            <div class="mock-backlog-item completed" onclick="toggleMockBacklog(this)">
+                                <div class="mock-checkbox"></div>
+                                <span class="mock-text">Send the revised proposal to Sarah</span>
+                            </div>
+                            
+                            <div class="mock-backlog-item" onclick="toggleMockBacklog(this)">
+                                <div class="mock-checkbox"></div>
+                                <span class="mock-text">Book a follow-up for next Tuesday</span>
+                            </div>
+                            
+                            <div class="mock-backlog-item" onclick="toggleMockBacklog(this)">
+                                <div class="mock-checkbox"></div>
+                                <span class="mock-text">Share the Q3 numbers with the team</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ⏳ HOW IT WORKS VIEW -->
+        <div class="spa-view" id="view-how-it-works">
+            <section class="work-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>HOW IT WORKS</span>
+                        <h2>Before, during, and after the meeting.</h2>
+                    </div>
+                    
+                    <div class="step-timeline">
+                        <!-- Before -->
+                        <div class="step-node">
+                            <div class="step-icon-circle">📝</div>
+                            <h3>Before: Prepare</h3>
+                            <p>Jot down agenda preparation notes, select your custom dashboard layout structure, and switch between Claude or Gemini engines in advanced settings.</p>
+                        </div>
+                        
+                        <!-- During -->
+                        <div class="step-node">
+                            <div class="step-icon-circle">🎙️</div>
+                            <h3>During: Live in the room</h3>
+                            <p>Record your screen or session audio, then import or paste the raw transcripts (.txt, .srt, .vtt) into the Kall AI Operations Uploader.</p>
+                        </div>
+                        
+                        <!-- After -->
+                        <div class="step-node">
+                            <div class="step-icon-circle">🚀</div>
+                            <h3>After: Summary & follow-ups</h3>
+                            <p>The moment you click extract: get structured backlogs validated by Pydantic JSON schemas, track talk shares, and chat with your context-aware PM Copilot.</p>
+                        </div>
+                    </div>
+
+                    <!-- Integration checklist / 📖 User Guide FAQs details -->
+                    <div class="glass-card guide-details-card">
+                        <h3>⚡ App Fast-Track Checklist</h3>
+                        <ul class="checklist-ul">
+                            <li><b>Load Data</b>: Click "💡 Load Q3 Sprint Demo Transcript" to auto-fill a complete cross-functional alignment call in State 1.</li>
+                            <li><b>Extract Insights</b>: Click "🚀 Extract Operational Insights" to execute the structured Pydantic parser.</li>
+                            <li><b>Manage Backlogs</b>: Check off action items in the interactive list and add new tasks to update velocity charts dynamically.</li>
+                            <li><b>Inspect Speakers</b>: Check talk-time distributions and search raw records inside the Speaker Analytics dashboard.</li>
+                            <li><b>Consult Copilot</b>: Open the chat pane to query past decisions or milestones using Anthropic/Google LLM reasoning.</li>
+                        </ul>
+
+                        <div class="flow-diagram-container">
+                            Unstructured meeting text transcript/audio<br>
+                            ⬇️<br>
+                            Structured Pydantic Validation Schema (Typed JSON)<br>
+                            ⬇️<br>
+                            Interactive Streamlit Cockpit UI (Executive Dashboard, Checklists, Speaker Charts, Chat Bot)
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 📊 USE CASES VIEW -->
+        <div class="spa-view" id="view-use-cases">
+            <section class="work-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>USE CASES</span>
+                        <h2>Built for recording. Great at the rest.</h2>
+                    </div>
+                    
+                    <div class="features-grid">
+                        <div class="glass-card use-case-card">
+                            <div class="use-case-icon">👥</div>
+                            <h3>Meeting notes</h3>
+                            <p>Client discovery calls, sprint check-ins, workshops, and DevOps reviews. Capture discussions and instantly output clean executive backlogs without re-listening.</p>
+                        </div>
+                        
+                        <div class="glass-card use-case-card">
+                            <div class="use-case-icon">🎙️</div>
+                            <h3>Personal voice notes</h3>
+                            <p>Daily standup preps, project brainstorms, and walk-and-talk notes. Turn unstructured dictations into structured deliverables in seconds.</p>
+                        </div>
+                        
+                        <div class="glass-card use-case-card">
+                            <div class="use-case-icon">📋</div>
+                            <h3>Agile backlogs</h3>
+                            <p>Maintains team sprint alignment. Manage tasks, assign owners, complete checklists, and export report documents (.pdf/.csv/.md) directly to your local drive.</p>
+                        </div>
+                        
+                        <div class="glass-card use-case-card">
+                            <div class="use-case-icon">🤖</div>
+                            <h3>AI PM Copilot</h3>
+                            <p>Query past decisions. Safely search meeting transcripts, extract direct attendee statements, and discover sprint blockers in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 🙋 FAQ VIEW -->
+        <div class="spa-view" id="view-faq">
+            <section class="work-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>FAQ</span>
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                    
+                    <div class="faq-wrapper">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                How does Kall AI guarantee structured dashboard output?
+                                <span class="faq-icon">✚</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Kall AI runs structured validation over API outputs using Pydantic. By enforcing strict schemas, the model output is verified for data-types (lists, strings, and integers) before building the UI, preventing broken elements.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                Is my transcript data stored or used to train models?
+                                <span class="faq-icon">✚</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>No. Kall AI operates strictly in-memory (ephemeral state). The transcript is sent via TLS 1.3 encryption to the AI API (using zero-retention developer keys) and is destroyed once the session is closed. Your text is never stored in databases or used for training.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                Can I use the app without adding my own API keys?
+                                <span class="faq-icon">✚</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes. If no custom API keys are provided in the environment or secrets, the app runs in full-fidelity simulation mode, allowing recruiters and evaluators to test every dashboard module using high-quality mock Sprint transcripts.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 4 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                What transcription files are supported?
+                                <span class="faq-icon">✚</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We support text uploads of raw conversational dialogue, as well as subtitle and time-coded transcription formats including SRT and VTT files.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 🔑 LOGIN / START FREE GATEWAY -->
+        <div class="spa-view" id="view-login">
+            <section class="login-container">
+                <div class="glass-card login-card">
+                    <div class="login-logo-header">
+                        <span class="logo-orb" style="margin: 0 auto; width: 44px; height: 44px; font-size: 1.8rem;">🎙️</span>
+                        <h2>Kall AI</h2>
+                        <p>Sign in to manage your meetings</p>
+                    </div>
+
+                    <div class="login-welcome-banner">
+                        Welcome! Sign in or launch the sandbox cockpit.
+                    </div>
+
+                    <div class="login-tabs">
+                        <button onclick="toggleLoginMode('signup')" class="login-tab-btn active-login" id="tab-signup">Sign Up</button>
+                        <button onclick="toggleLoginMode('signin')" class="login-tab-btn" id="tab-signin">Sign In</button>
+                    </div>
+
+                    <form onsubmit="handleLoginSubmit(event)">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="login-email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-pass">Password</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="login-pass" placeholder="Create a password" required>
+                            </div>
+                        </div>
+
+                        <label class="checkbox-row" id="terms-checkbox-row">
+                            <input type="checkbox" required checked>
+                            <span>I agree to the Terms of Service and Privacy Policy</span>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px 0; font-family:'Outfit', sans-serif; font-size: 0.95rem;" id="submit-auth-btn">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <div class="login-divider">OR</div>
+
+                    <button onclick="simulateAuthRedirect()" class="btn btn-outline" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 0.85rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.24-.63-.35-1.3-.35-2.09z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                        </svg>
+                        Sign Up with Google
+                    </button>
+
+                    <button onclick="simulateAuthRedirect()" class="btn btn-outline" style="width: 100%; border-color: rgba(249, 115, 22, 0.4); color: var(--accent-orange); font-size: 0.85rem;">
+                        ⚡ Quick Launch Sandbox Cockpit
+                    </button>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- LOADING OVERLAY -->
+    <div class="loading-overlay" id="auth-loader">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loader-msg">Initializing Pydantic LLM Cockpit...</div>
+    </div>
+
+    <!-- 📋 FOOTER -->
+    <footer>
+        <div class="container">
+            <a onclick="switchTab('home')" class="footer-logo" style="cursor:pointer;">
+                <span class="logo-orb" style="width: 32px; height: 32px; font-size: 1.25rem;">🎙️</span>
+                Kall AI
+            </a>
+            <ul class="footer-links">
+                <li><button onclick="switchTab('how-it-works')">How it works</button></li>
+                <li><button onclick="switchTab('use-cases')">Use cases</button></li>
+                <li><button onclick="switchTab('faq')">FAQ</button></li>
+            </ul>
+            <p>&copy; 2026 Kall AI. Built for premium operations management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // SPA Tab switching controller
+        let activeTab = 'home';
+
+        function switchTab(tabId) {
+            // Update active state in state variables
+            activeTab = tabId;
+
+            // Hide all views, show target view
+            document.querySelectorAll('.spa-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            const targetView = document.getElementById(`view-${tabId}`);
+            if (targetView) {
+                targetView.classList.add('active');
+            }
+
+            // Update active state in nav link classes
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-tab');
+            });
+            const activeLink = document.getElementById(`nav-${tabId}`);
+            if (activeLink) {
+                activeLink.classList.add('active-tab');
+            }
+
+            // Scroll window to top
+            window.scrollTo(0, 0);
+        }
+
+        // FAQ accordion toggle logic
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const answer = button.nextElementSibling;
+            
+            // Close other open FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = '0';
+                }
+            });
+
+            // Toggle current item
+            faqItem.classList.toggle('active');
+            if (faqItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = '0';
+            }
+        }
+
+        // Mock Backlog checkbox interactive simulator click
+        function toggleMockBacklog(item) {
+            item.classList.toggle('completed');
+        }
+
+        // Toggle between Sign Up and Sign In modes in login view
+        let authMode = 'signup';
+        function toggleLoginMode(mode) {
+            authMode = mode;
+            const tabSignup = document.getElementById('tab-signup');
+            const tabSignin = document.getElementById('tab-signin');
+            const submitBtn = document.getElementById('submit-auth-btn');
+            const passInput = document.getElementById('login-pass');
+            const termsBox = document.getElementById('terms-checkbox-row');
+
+            if (mode === 'signup') {
+                tabSignup.classList.add('active-login');
+                tabSignin.classList.remove('active-login');
+                submitBtn.innerText = 'Create Account';
+                passInput.placeholder = 'Create a password';
+                termsBox.style.display = 'flex';
+            } else {
+                tabSignup.classList.remove('active-login');
+                tabSignin.classList.add('active-login');
+                submitBtn.innerText = 'Sign In';
+                passInput.placeholder = 'Enter your password';
+                termsBox.style.display = 'none';
+            }
+        }
+
+        // Handle login form submit
+        function handleLoginSubmit(event) {
+            event.preventDefault();
+            simulateAuthRedirect();
+        }
+
+        // Simulated redirect with loading overlay
+        function simulateAuthRedirect() {
+            const loader = document.getElementById('auth-loader');
+            const loaderMsg = document.getElementById('loader-msg');
+            loader.classList.add('active');
+
+            setTimeout(() => {
+                loaderMsg.innerText = "Connecting secure TLS 1.3 workspace...";
+            }, 1200);
+
+            setTimeout(() => {
+                loaderMsg.innerText = "Redirecting to Kall AI App Cockpit...";
+            }, 2400);
+
+            setTimeout(() => {
+                loader.classList.remove('active');
+                // Redirect to Streamlit Cockpit
+                window.location.href = "https://genai-meeting-summarizer.streamlit.app/";
+            }, 3600);
+        }
+    </script>
+</body>
+</html>
