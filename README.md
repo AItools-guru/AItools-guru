@@ -105,6 +105,32 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 <table width="100%" style="border-collapse: collapse; border: none;">
   <tr>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>🎙️ Kall AI: GenAI Meeting Summarizer</h3>
+      <p><strong>Flagship SaaS Product</strong></p>
+      <p>Elite meeting transcript refactoring platform with a Granola-style AI Notepad, specialized templates (Sprint, Sales, Retro), agile checklists, speaker analytics, and an interactive PM Copilot.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
+        <img src="https://img.shields.io/badge/Claude_AI-D97706?style=flat-square&logo=anthropic&logoColor=white" />
+        <img src="https://img.shields.io/badge/Gemini-8E75C2?style=flat-square&logo=googlegemini&logoColor=white" />
+        <img src="https://img.shields.io/badge/Pydantic-FF4B4B?style=flat-square" />
+      </p>
+      <a href="https://github.com/AItools-guru/GenAI-Meeting-Summarizer">📂 Explore Code</a> | <a href="https://kall-ai.com">⚡ Live App</a>
+    </td>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>🎥 VidGist: GenAI YouTube Summarizer</h3>
+      <p><strong>New Full-Stack SaaS App</strong></p>
+      <p>Premium YouTube video summarizer featuring 3-tiered summarization powered by Gemini, secure Google OAuth login, and live cloud-synced history.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Gemini-8E75C2?style=flat-square&logo=googlegemini&logoColor=white" />
+        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" />
+        <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" />
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+      </p>
+      <a href="https://vid-gist-seven.vercel.app">🚀 Launch Live App</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
       <h3>🧠 Enterprise AI Playbook</h3>
       <p><strong>GenAI Strategy & ROI Platform</strong></p>
       <p>Interactive dashboard and decision-support simulator calculating LLM implementation ROI and hosting a system prompt library for 6 roles.</p>
@@ -113,71 +139,20 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
         <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
         <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
-        <img src="https://img.shields.io/badge/Mermaid-blue?style=flat-square" />
       </p>
       <a href="https://github.com/AItools-guru/enterprise-ai-playbook">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/enterprise-ai-playbook/prototype/">🚀 Live Simulator</a>
     </td>
     <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>📊 Sales Performance Dashboard</h3>
-      <p><strong>Interactive BI Strategy Platform</strong></p>
-      <p>An end-to-end sales analytics system using Power BI / Tableau to diagnose conversion bottlenecks and performance trends.</p>
+      <h3>📊 Apex Sales Dashboard</h3>
+      <p><strong>Enterprise BI Strategy Platform</strong></p>
+      <p>An enterprise growth simulation and territorial mapping dashboard modeling Salesforce pipelines and DAX performance metrics.</p>
       <p>
-        <img src="https://img.shields.io/badge/Salesforce-00A1E0?style=flat-square&logo=salesforce&logoColor=white" />
         <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" />
-        <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
+        <img src="https://img.shields.io/badge/Salesforce-00A1E0?style=flat-square&logo=salesforce&logoColor=white" />
         <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
-      </p>
-      <a href="https://github.com/AItools-guru/sales-performance-dashboard">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-dashboard/prototype/">🚀 Live Dashboard</a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>💼 Sales Performance Portfolio</h3>
-      <p><strong>Product Management & Analytics Showcase</strong></p>
-      <p>Detailed analysis mapping operational metrics to strategic business outcomes. Perfect for demonstrating technical leadership.</p>
-      <p>
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
-        <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-        <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" />
       </p>
-      <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Launch App</a>
-    </td>
-    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>⚙️ Crypto ETL Pipeline</h3>
-      <p><strong>Automated Data Integration Pipeline</strong></p>
-      <p>Production-ready ETL pipeline extracting real-time market data, validating schema integrity, and loading it into SQLite storage.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-        <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
-        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-      </p>
-      <a href="https://github.com/AItools-guru/crypto-etl-pipeline">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/crypto-etl-pipeline/blob/main/main.py">⚙️ Explore Script</a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>⚡ SQL Sales Analytics</h3>
-      <p><strong>Advanced Relational Database Queries</strong></p>
-      <p>Robust database modeling, cohort analyses, customer retention metrics, and sales trend diagnostics using structured SQL queries.</p>
-      <p>
-        <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
-        <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
-        <img src="https://img.shields.io/badge/Cohort_Analysis-Analytics-orange?style=flat-square" />
-      </p>
-      <a href="https://github.com/AItools-guru/sql-sales-analytics">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/sql-sales-analytics/blob/main/queries.sql">⚡ View Queries</a>
-    </td>
-    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
-      <h3>📅 Budget Tracker</h3>
-      <p><strong>Advanced Excel Financial Planner</strong></p>
-      <p>A high-detail spreadsheet financial tracker modeling monthly income allocations, dynamic expense logs, and automated chart scorecards.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" />
-        <img src="https://img.shields.io/badge/Automation-VBA-orange?style=flat-square" />
-        <img src="https://img.shields.io/badge/Finance-Modeling-green?style=flat-square" />
-      </p>
-      <a href="https://github.com/AItools-guru/budget-tracker-excel">📂 Explore Code</a> | <a href="https://github.com/AItools-guru/budget-tracker-excel/raw/main/budget_tracker.xlsx">📥 Download Sheet</a>
+      <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Live Dashboard</a>
     </td>
   </tr>
   <tr>
