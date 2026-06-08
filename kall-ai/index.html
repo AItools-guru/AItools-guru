@@ -1013,7 +1013,7 @@
                                     <div class="mock-wave-bar"></div>
                                     <div class="mock-wave-bar"></div>
                                 </div>
-                                <div class="mock-rec-timer">02:14</div>
+                                <div class="mock-rec-timer">05:00</div>
                             </div>
                             
                             <!-- Summary Skeleton -->
@@ -1347,6 +1347,33 @@
                 answer.style.maxHeight = '0';
             }
         }
+
+        // Dynamic Countdown Timer (5:00 -> 0:00 loop)
+        (function() {
+            const timerEl = document.querySelector('.mock-rec-timer');
+            if (!timerEl) return;
+            
+            let totalSeconds = 300; // 5 minutes
+            
+            function updateTimer() {
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                
+                const minStr = String(minutes).padStart(2, '0');
+                const secStr = String(seconds).padStart(2, '0');
+                
+                timerEl.innerText = `${minStr}:${secStr}`;
+                
+                if (totalSeconds <= 0) {
+                    totalSeconds = 300; // Reset to 5 minutes
+                } else {
+                    totalSeconds--;
+                }
+            }
+            
+            updateTimer(); // Initial call
+            setInterval(updateTimer, 1000);
+        })();
 
         // Mock Backlog checkbox interactive simulator click
         function toggleMockBacklog(item) {
