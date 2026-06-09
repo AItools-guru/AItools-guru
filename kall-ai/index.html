@@ -1580,6 +1580,10 @@
             }
         }
     </style>
+    <!-- Firebase SDK (v10.8.0 Compatibility Mode) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -2328,6 +2332,37 @@
             item.classList.toggle('completed');
         }
 
+        // ==========================================
+        // 🔒 FIREBASE INTEGRATION & AUTHENTICATION
+        // ==========================================
+
+        // Paste your Firebase Config keys here when ready:
+        const firebaseConfig = {
+            apiKey: "PLACEHOLDER_API_KEY",
+            authDomain: "PLACEHOLDER_PROJECT_ID.firebaseapp.com",
+            projectId: "PLACEHOLDER_PROJECT_ID",
+            storageBucket: "PLACEHOLDER_PROJECT_ID.appspot.com",
+            messagingSenderId: "PLACEHOLDER_SENDER_ID",
+            appId: "PLACEHOLDER_APP_ID"
+        };
+
+        // Determine if we have a real Firebase configuration or a placeholder
+        const isFirebaseLive = firebaseConfig.apiKey && firebaseConfig.apiKey !== "PLACEHOLDER_API_KEY";
+
+        let auth, db;
+        if (isFirebaseLive) {
+            try {
+                firebase.initializeApp(firebaseConfig);
+                auth = firebase.auth();
+                db = firebase.firestore();
+                console.log("🔥 Firebase Live Mode initialized successfully.");
+            } catch (error) {
+                console.error("Firebase initialization failed:", error);
+            }
+        } else {
+            console.log("💡 Firebase running in Sandbox/Demo mode. Using local fallbacks.");
+        }
+
         // Toggle between Sign Up and Sign In modes in login view
         let authMode = 'signup';
         function toggleLoginMode(mode) {
@@ -2344,7 +2379,7 @@
             if (mode === 'signup') {
                 tabSignup.classList.add('active-login');
                 tabSignin.classList.remove('active-login');
-                submitBtn.innerText = 'Create Account';
+                submitBtn.innerText = 'Join Waitlist';
                 passInput.placeholder = 'Create a password (min 8 chars)';
                 termsBox.style.display = 'flex';
                 strengthBar.classList.add('show');
@@ -2355,7 +2390,6 @@
                 submitBtn.innerText = 'Sign In';
                 passInput.placeholder = 'Enter your password';
                 termsBox.style.display = 'none';
-                // Hide strength bar on sign-in
                 strengthBar.classList.remove('show');
                 strengthLabel.classList.remove('show');
             }
@@ -2436,7 +2470,7 @@
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-pass').value;
 
-            // --- Validate email ---
+            // --- Validate email formatting ---
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showAuthError('Please enter a valid email address.');
@@ -2444,38 +2478,85 @@
                 return;
             }
 
-            // --- Validate password ---
-            if (authMode === 'signup') {
-                if (password.length < 8) {
-                    showAuthError('Password must be at least 8 characters long.');
-                    document.getElementById('login-pass').focus();
-                    return;
-                }
-                if (!/[A-Z]/.test(password) && !/[0-9]/.test(password)) {
-                    showAuthError('Add at least one uppercase letter or number for a stronger password.');
-                    document.getElementById('login-pass').focus();
-                    return;
-                }
-            } else {
-                if (password.length < 6) {
-                    showAuthError('Password must be at least 6 characters.');
-                    document.getElementById('login-pass').focus();
-                    return;
-                }
-            }
-
-            // --- All good: show success and redirect ---
-            const successMsg = authMode === 'signup'
-                ? '✅ Account created! Launching your Kall AI Cockpit...'
-                : '✅ Signed in! Launching your Kall AI Cockpit...';
-            showAuthSuccess(successMsg);
-
             // Disable submit to prevent double-click
             const btn = document.getElementById('submit-auth-btn');
             btn.disabled = true;
-            btn.innerText = 'Launching...';
+            btn.innerText = 'Processing...';
 
-            simulateAuthRedirect();
+            if (authMode === 'signup') {
+                // --- SIGN UP / WAITLIST FLOW ---
+                if (password.length < 8) {
+                    showAuthError('Password must be at least 8 characters long.');
+                    document.getElementById('login-pass').focus();
+                    btn.disabled = false;
+                    btn.innerText = 'Join Waitlist';
+                    return;
+                }
+
+                if (isFirebaseLive) {
+                    // Save waitlist email directly to Firestore
+                    db.collection('waitlist').add({
+                        email: email,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    })
+                    .then(() => {
+                        showAuthSuccess("✉️ Waitlist Registered! Sign-up is currently invite-only. We've reserved your spot.");
+                        document.getElementById('login-email').value = '';
+                        document.getElementById('login-pass').value = '';
+                        btn.disabled = false;
+                        btn.innerText = 'Join Waitlist';
+                    })
+                    .catch((error) => {
+                        showAuthError('❌ Server Error: ' + error.message);
+                        btn.disabled = false;
+                        btn.innerText = 'Join Waitlist';
+                    });
+                } else {
+                    // Sandbox Fallback Waitlist Confirmation
+                    setTimeout(() => {
+                        showAuthSuccess("✉️ Waitlist Registered! Sign-up is currently invite-only. We've reserved your spot! Use Sign In with demo account or launch Sandbox to preview.");
+                        document.getElementById('login-email').value = '';
+                        document.getElementById('login-pass').value = '';
+                        btn.disabled = false;
+                        btn.innerText = 'Join Waitlist';
+                    }, 800);
+                }
+            } else {
+                // --- SIGN IN FLOW ---
+                if (password.length < 6) {
+                    showAuthError('Password must be at least 6 characters.');
+                    document.getElementById('login-pass').focus();
+                    btn.disabled = false;
+                    btn.innerText = 'Sign In';
+                    return;
+                }
+
+                if (isFirebaseLive) {
+                    // Live Auth verification against Firebase Auth database
+                    auth.signInWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                        showAuthSuccess('✅ Signed in! Launching your Kall AI Cockpit...');
+                        simulateAuthRedirect();
+                    })
+                    .catch((error) => {
+                        showAuthError('❌ Authentication Failed: ' + error.message);
+                        btn.disabled = false;
+                        btn.innerText = 'Sign In';
+                    });
+                } else {
+                    // Sandbox Fallback Auth Check
+                    setTimeout(() => {
+                        if (email === 'demo@kall-ai.com' && password === 'kallai2026') {
+                            showAuthSuccess('✅ Signed in! Launching your Kall AI Cockpit...');
+                            simulateAuthRedirect();
+                        } else {
+                            showAuthError('❌ Access Denied: Invalid email or password. To preview the dashboard, please sign in with our demo account: demo@kall-ai.com / password: kallai2026');
+                            btn.disabled = false;
+                            btn.innerText = 'Sign In';
+                        }
+                    }, 800);
+                }
+            }
         }
 
         // Simulated redirect with loading overlay
@@ -2496,9 +2577,8 @@
 
             setTimeout(() => {
                 loader.classList.remove('active');
-                // Re-enable button if redirect fails
                 const btn = document.getElementById('submit-auth-btn');
-                if (btn) { btn.disabled = false; btn.innerText = authMode === 'signup' ? 'Create Account' : 'Sign In'; }
+                if (btn) { btn.disabled = false; btn.innerText = authMode === 'signup' ? 'Join Waitlist' : 'Sign In'; }
                 try {
                     window.location.href = 'https://genai-meeting-summarizer.streamlit.app/';
                 } catch(e) {
