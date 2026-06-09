@@ -2188,14 +2188,14 @@
 
                     <div class="login-divider">OR</div>
 
-                    <button onclick="simulateAuthRedirect()" class="btn btn-outline" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 0.85rem;">
+                    <button id="google-auth-btn" onclick="handleGoogleAuth()" class="btn btn-outline" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 0.85rem;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                             <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.24-.63-.35-1.3-.35-2.09z" fill="#FBBC05"/>
                             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
                         </svg>
-                        Sign Up with Google
+                        <span id="google-auth-btn-text">Join Waitlist with Google</span>
                     </button>
 
                     <button onclick="simulateAuthRedirect()" class="btn btn-outline" style="width: 100%; border-color: rgba(249, 115, 22, 0.4); color: var(--accent-orange); font-size: 0.85rem;">
@@ -2375,6 +2375,7 @@
             const termsBox = document.getElementById('terms-checkbox-row');
             const strengthBar = document.getElementById('pass-strength-bar');
             const strengthLabel = document.getElementById('pass-strength-label');
+            const googleBtnText = document.getElementById('google-auth-btn-text');
 
             if (mode === 'signup') {
                 tabSignup.classList.add('active-login');
@@ -2384,6 +2385,7 @@
                 termsBox.style.display = 'flex';
                 strengthBar.classList.add('show');
                 strengthLabel.classList.add('show');
+                if (googleBtnText) googleBtnText.innerText = 'Join Waitlist with Google';
             } else {
                 tabSignup.classList.remove('active-login');
                 tabSignin.classList.add('active-login');
@@ -2392,6 +2394,114 @@
                 termsBox.style.display = 'none';
                 strengthBar.classList.remove('show');
                 strengthLabel.classList.remove('show');
+                if (googleBtnText) googleBtnText.innerText = 'Sign In with Google';
+            }
+        }
+
+        // Handle Google OAuth Sign In / Sign Up
+        function handleGoogleAuth() {
+            clearAuthBanners();
+            const btn = document.getElementById('google-auth-btn');
+            const btnText = document.getElementById('google-auth-btn-text');
+            const originalText = btnText ? btnText.innerText : 'Sign in with Google';
+
+            if (btn) btn.disabled = true;
+            if (btnText) btnText.innerText = 'Connecting Google...';
+
+            if (authMode === 'signup') {
+                // --- GOOGLE SIGN UP / WAITLIST REGISTRATION ---
+                if (isFirebaseLive) {
+                    const provider = new firebase.auth.GoogleAuthProvider();
+                    
+                    // Promise wrapper with 5-second timeout
+                    const promiseWithTimeout = (promise, ms, timeoutMessage) => {
+                        let timeout = new Promise((resolve, reject) => {
+                            let id = setTimeout(() => {
+                                clearTimeout(id);
+                                reject(new Error(timeoutMessage));
+                            }, ms);
+                        });
+                        return Promise.race([promise, timeout]);
+                    };
+
+                    promiseWithTimeout(
+                        auth.signInWithPopup(provider),
+                        7000,
+                        "Google Auth timed out. Please check if popups are allowed or try again."
+                    )
+                    .then((result) => {
+                        const email = result.user.email;
+                        // Save email directly to waitlist collection
+                        return db.collection('waitlist').add({
+                            email: email,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                            provider: 'google'
+                        });
+                    })
+                    .then(() => {
+                        // Immediately sign out since they are placed on waitlist (not full account yet)
+                        auth.signOut();
+                        showAuthSuccess("✉️ Google account verified! We have added you to our private waitlist. We will invite you soon.");
+                        if (btn) btn.disabled = false;
+                        if (btnText) btnText.innerText = originalText;
+                    })
+                    .catch((error) => {
+                        showAuthError('❌ ' + error.message);
+                        if (btn) btn.disabled = false;
+                        if (btnText) btnText.innerText = originalText;
+                    });
+                } else {
+                    // Sandbox Fallback Waitlist Confirmation
+                    setTimeout(() => {
+                        showAuthSuccess("✉️ Waitlist Registered! Sign-up with Google is invite-only. We've reserved your spot. Use Sign In with demo account or launch Sandbox to preview.");
+                        if (btn) btn.disabled = false;
+                        if (btnText) btnText.innerText = originalText;
+                    }, 1000);
+                }
+            } else {
+                // --- GOOGLE SIGN IN FLOW ---
+                if (isFirebaseLive) {
+                    const provider = new firebase.auth.GoogleAuthProvider();
+                    
+                    const promiseWithTimeout = (promise, ms, timeoutMessage) => {
+                        let timeout = new Promise((resolve, reject) => {
+                            let id = setTimeout(() => {
+                                clearTimeout(id);
+                                reject(new Error(timeoutMessage));
+                            }, ms);
+                        });
+                        return Promise.race([promise, timeout]);
+                    };
+
+                    promiseWithTimeout(
+                        auth.signInWithPopup(provider),
+                        7000,
+                        "Google Auth timed out. Please try again."
+                    )
+                    .then((result) => {
+                        const email = result.user.email;
+                        
+                        // Check if the user is registered in Firebase Auth, or if they are authorized
+                        // For private beta, we can let them log in if they exist, or check a list.
+                        // For now, if their login is successful, we let them in!
+                        showAuthSuccess('✅ Signed in with Google! Launching your Kall AI Cockpit...');
+                        if (btn) btn.disabled = false;
+                        if (btnText) btnText.innerText = originalText;
+                        simulateAuthRedirect();
+                    })
+                    .catch((error) => {
+                        showAuthError('❌ ' + error.message);
+                        if (btn) btn.disabled = false;
+                        if (btnText) btnText.innerText = originalText;
+                    });
+                } else {
+                    // Sandbox Fallback
+                    setTimeout(() => {
+                        showAuthError("❌ Access Denied: Google sign-in is only available for active waitlist invitees. Please use the demo account demo@kall-ai.com with password kallai2026.");
+                        if (btn) btn.disabled = false;
+                        if (btnText) btnText.innerText = originalText;
+                    }, 1000);
+                }
             }
         }
 
