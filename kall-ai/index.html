@@ -372,6 +372,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            height: 30px; /* Fixed height to prevent layout shifting/wobbling */
         }
 
         .mock-wave-bar {
@@ -1541,8 +1542,8 @@
                             <h3>Direct Audio &amp; Whiteboard OCR</h3>
                             <p>No text transcript? No problem. Kall AI leverages Gemini's native multi-hour audio window to transcribe and summarize directly from raw audio files (.mp3, .wav, .m4a). Combine it with whiteboard sketches or slide deck screenshots, and the multi-modal LLM automatically extracts architectural decisions and drawings discussed in the room.</p>
                             <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
-                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Zero Whisper Dependencies:</span> Native multi-hour audio processing via Gemini API.</li>
-                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Visual Brainstorms:</span> Merges scribbles, whiteboard sticky notes, and diagrams.</li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Zero Whisper Dependencies:</span> Native multi-hour audio processing via Gemini API.</div></li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Visual Brainstorms:</span> Merges scribbles, whiteboard sticky notes, and diagrams.</div></li>
                             </ul>
                         </div>
                         <div class="features-alt-col">
@@ -1572,8 +1573,8 @@
                             <h3>Bulletproof Pydantic Enforcements</h3>
                             <p>Most AI summarizers dump markdown that breaks when parsed. Kall AI runs strict validation over LLM outputs using structured Pydantic schemas. This ensures your action checklists, speaker statistics, and retro metrics are strictly typed (lists, strings, and integers) before building the interface. Zero broken elements, guaranteed.</p>
                             <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
-                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Strict Datatypes:</span> Enforces exact formats for tasks, owners, and velocities.</li>
-                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Zero Hallucinations:</span> Pydantic filters out unstructured metadata automatically.</li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Strict Datatypes:</span> Enforces exact formats for tasks, owners, and velocities.</div></li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Zero Hallucinations:</span> Pydantic filters out unstructured metadata automatically.</div></li>
                             </ul>
                         </div>
                         <div class="features-alt-col">
@@ -1605,8 +1606,8 @@
                             <h3>Context-Aware Copilot Chat</h3>
                             <p>Query past decisions directly in your private space. Kall AI indexes transcript records so you can ask the PM Copilot about action item blockers, team alignment, or timeline updates. Switch dynamically between Claude 3.5 Sonnet or Gemini 1.5 Pro engines on the fly to get the exact reasoning model you need.</p>
                             <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
-                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Dynamic LLM Swap:</span> Switch cognitive models without reloading state.</li>
-                                <li style="grid-template-columns: auto 1fr;"><span class="checklist-label">Reference Citations:</span> Pinpoints the exact speaker statement from the transcript.</li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Dynamic LLM Swap:</span> Switch cognitive models without reloading state.</div></li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Reference Citations:</span> Pinpoints the exact speaker statement from the transcript.</div></li>
                             </ul>
                         </div>
                         <div class="features-alt-col">
