@@ -923,6 +923,102 @@
             letter-spacing: 0.5px;
         }
 
+        /* 🔴 AUTH ERROR BANNER */
+        .auth-error-banner {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            color: #fca5a5;
+            animation: fadeInDown 0.25s ease;
+        }
+        .auth-error-banner.show {
+            display: flex;
+        }
+        .auth-success-banner {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            color: #86efac;
+            animation: fadeInDown 0.25s ease;
+        }
+        .auth-success-banner.show {
+            display: flex;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 👁️ PASSWORD TOGGLE */
+        .input-wrapper {
+            position: relative;
+        }
+        .input-wrapper input {
+            width: 100%;
+            padding-right: 42px;
+            box-sizing: border-box;
+        }
+        .pass-toggle-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .pass-toggle-btn:hover {
+            color: var(--accent-blue);
+        }
+
+        /* 🔒 PASSWORD STRENGTH BAR */
+        .pass-strength-bar {
+            display: none;
+            margin-top: 6px;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.08);
+            overflow: hidden;
+        }
+        .pass-strength-bar.show {
+            display: block;
+        }
+        .pass-strength-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease, background 0.3s ease;
+            width: 0%;
+        }
+        .pass-strength-label {
+            display: none;
+            font-size: 0.72rem;
+            font-family: 'Outfit', sans-serif;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+        .pass-strength-label.show {
+            display: block;
+        }
+
         /* 📋 FOOTER */
         footer {
             border-top: 1px solid var(--border-color);
@@ -2045,6 +2141,16 @@
                         <button onclick="toggleLoginMode('signin')" class="login-tab-btn" id="tab-signin">Sign In</button>
                     </div>
 
+                    <!-- Error / Success banners -->
+                    <div class="auth-error-banner" id="auth-error-banner">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <span id="auth-error-text">Something went wrong. Please try again.</span>
+                    </div>
+                    <div class="auth-success-banner" id="auth-success-banner">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span id="auth-success-text">Account created! Launching your cockpit...</span>
+                    </div>
+
                     <form onsubmit="handleLoginSubmit(event)">
                         <div class="form-group">
                             <label for="login-email">Email</label>
@@ -2056,8 +2162,14 @@
                         <div class="form-group">
                             <label for="login-pass">Password</label>
                             <div class="input-wrapper">
-                                <input type="password" id="login-pass" placeholder="Create a password" required>
+                                <input type="password" id="login-pass" placeholder="Create a password" required oninput="checkPasswordStrength(this.value)">
+                                <button type="button" class="pass-toggle-btn" onclick="togglePasswordVisibility()" aria-label="Toggle password visibility" id="pass-toggle-icon">
+                                    <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                                </button>
                             </div>
+                            <div class="pass-strength-bar" id="pass-strength-bar"><div class="pass-strength-fill" id="pass-strength-fill"></div></div>
+                            <div class="pass-strength-label" id="pass-strength-label"></div>
                         </div>
 
                         <label class="checkbox-row" id="terms-checkbox-row">
@@ -2220,30 +2332,149 @@
         let authMode = 'signup';
         function toggleLoginMode(mode) {
             authMode = mode;
+            clearAuthBanners();
             const tabSignup = document.getElementById('tab-signup');
             const tabSignin = document.getElementById('tab-signin');
             const submitBtn = document.getElementById('submit-auth-btn');
             const passInput = document.getElementById('login-pass');
             const termsBox = document.getElementById('terms-checkbox-row');
+            const strengthBar = document.getElementById('pass-strength-bar');
+            const strengthLabel = document.getElementById('pass-strength-label');
 
             if (mode === 'signup') {
                 tabSignup.classList.add('active-login');
                 tabSignin.classList.remove('active-login');
                 submitBtn.innerText = 'Create Account';
-                passInput.placeholder = 'Create a password';
+                passInput.placeholder = 'Create a password (min 8 chars)';
                 termsBox.style.display = 'flex';
+                strengthBar.classList.add('show');
+                strengthLabel.classList.add('show');
             } else {
                 tabSignup.classList.remove('active-login');
                 tabSignin.classList.add('active-login');
                 submitBtn.innerText = 'Sign In';
                 passInput.placeholder = 'Enter your password';
                 termsBox.style.display = 'none';
+                // Hide strength bar on sign-in
+                strengthBar.classList.remove('show');
+                strengthLabel.classList.remove('show');
             }
+        }
+
+        // Password strength checker
+        function checkPasswordStrength(val) {
+            if (authMode !== 'signup') return;
+            const bar = document.getElementById('pass-strength-bar');
+            const fill = document.getElementById('pass-strength-fill');
+            const label = document.getElementById('pass-strength-label');
+
+            bar.classList.add('show');
+            label.classList.add('show');
+
+            let score = 0;
+            if (val.length >= 8) score++;
+            if (val.length >= 12) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+
+            const levels = [
+                { pct: '0%',   color: 'transparent',            text: '' },
+                { pct: '25%',  color: '#ef4444',                text: '🔴 Too weak' },
+                { pct: '50%',  color: '#f97316',                text: '🟠 Weak — add numbers or symbols' },
+                { pct: '75%',  color: '#eab308',                text: '🟡 Fair — getting better!' },
+                { pct: '90%',  color: '#22c55e',                text: '🟢 Strong' },
+                { pct: '100%', color: 'var(--accent-blue)',      text: '✅ Very strong — great password!' },
+            ];
+
+            const lvl = val.length === 0 ? 0 : Math.min(score, 5);
+            fill.style.width = levels[lvl].pct;
+            fill.style.background = levels[lvl].color;
+            label.innerText = levels[lvl].text;
+            label.style.color = levels[lvl].color;
+        }
+
+        // Show/hide password
+        function togglePasswordVisibility() {
+            const input = document.getElementById('login-pass');
+            const eyeIcon = document.getElementById('eye-icon');
+            const eyeOffIcon = document.getElementById('eye-off-icon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.style.display = 'none';
+                eyeOffIcon.style.display = 'block';
+            } else {
+                input.type = 'password';
+                eyeIcon.style.display = 'block';
+                eyeOffIcon.style.display = 'none';
+            }
+        }
+
+        // Show / clear banners
+        function showAuthError(msg) {
+            const banner = document.getElementById('auth-error-banner');
+            document.getElementById('auth-error-text').innerText = msg;
+            banner.classList.add('show');
+            document.getElementById('auth-success-banner').classList.remove('show');
+        }
+        function showAuthSuccess(msg) {
+            const banner = document.getElementById('auth-success-banner');
+            document.getElementById('auth-success-text').innerText = msg;
+            banner.classList.add('show');
+            document.getElementById('auth-error-banner').classList.remove('show');
+        }
+        function clearAuthBanners() {
+            document.getElementById('auth-error-banner').classList.remove('show');
+            document.getElementById('auth-success-banner').classList.remove('show');
         }
 
         // Handle login form submit
         function handleLoginSubmit(event) {
             event.preventDefault();
+            clearAuthBanners();
+
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-pass').value;
+
+            // --- Validate email ---
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showAuthError('Please enter a valid email address.');
+                document.getElementById('login-email').focus();
+                return;
+            }
+
+            // --- Validate password ---
+            if (authMode === 'signup') {
+                if (password.length < 8) {
+                    showAuthError('Password must be at least 8 characters long.');
+                    document.getElementById('login-pass').focus();
+                    return;
+                }
+                if (!/[A-Z]/.test(password) && !/[0-9]/.test(password)) {
+                    showAuthError('Add at least one uppercase letter or number for a stronger password.');
+                    document.getElementById('login-pass').focus();
+                    return;
+                }
+            } else {
+                if (password.length < 6) {
+                    showAuthError('Password must be at least 6 characters.');
+                    document.getElementById('login-pass').focus();
+                    return;
+                }
+            }
+
+            // --- All good: show success and redirect ---
+            const successMsg = authMode === 'signup'
+                ? '✅ Account created! Launching your Kall AI Cockpit...'
+                : '✅ Signed in! Launching your Kall AI Cockpit...';
+            showAuthSuccess(successMsg);
+
+            // Disable submit to prevent double-click
+            const btn = document.getElementById('submit-auth-btn');
+            btn.disabled = true;
+            btn.innerText = 'Launching...';
+
             simulateAuthRedirect();
         }
 
@@ -2253,19 +2484,27 @@
             const loaderMsg = document.getElementById('loader-msg');
             loader.classList.add('active');
 
-            setTimeout(() => {
-                loaderMsg.innerText = "Connecting secure TLS 1.3 workspace...";
-            }, 1200);
-
-            setTimeout(() => {
-                loaderMsg.innerText = "Redirecting to Kall AI App Cockpit...";
-            }, 2400);
+            const steps = [
+                { delay: 800,  msg: 'Verifying credentials...' },
+                { delay: 1800, msg: 'Connecting secure TLS 1.3 workspace...' },
+                { delay: 2800, msg: 'Loading your Kall AI Cockpit...' },
+                { delay: 3600, msg: 'Redirecting now...' },
+            ];
+            steps.forEach(({ delay, msg }) => {
+                setTimeout(() => { loaderMsg.innerText = msg; }, delay);
+            });
 
             setTimeout(() => {
                 loader.classList.remove('active');
-                // Redirect to Streamlit Cockpit
-                window.location.href = "https://genai-meeting-summarizer.streamlit.app/";
-            }, 3600);
+                // Re-enable button if redirect fails
+                const btn = document.getElementById('submit-auth-btn');
+                if (btn) { btn.disabled = false; btn.innerText = authMode === 'signup' ? 'Create Account' : 'Sign In'; }
+                try {
+                    window.location.href = 'https://genai-meeting-summarizer.streamlit.app/';
+                } catch(e) {
+                    showAuthError('Could not redirect to the app. Please try opening https://genai-meeting-summarizer.streamlit.app/ directly.');
+                }
+            }, 4000);
         }
 
         // Showcase Tab Switcher
