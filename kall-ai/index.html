@@ -1088,6 +1088,8 @@
                 padding: 4px 8px;
                 font-size: 0.72rem;
             }
+        }
+
         /* ⚡ ALTERNATING FEATURES SECTION */
         .features-alt-section {
             padding: 80px 0;
@@ -1163,10 +1165,13 @@
             font-size: 0.95rem;
             background: rgba(15, 23, 42, 0.45);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            table-layout: fixed;
         }
         .comparison-table th, .comparison-table td {
-            padding: 18px 24px;
+            padding: 20px 24px;
             border-bottom: 1px solid var(--border-color);
+            word-wrap: break-word;
         }
         .comparison-table th {
             background: rgba(8, 11, 17, 0.85);
@@ -1176,11 +1181,18 @@
             font-size: 1.05rem;
             letter-spacing: 0.5px;
         }
-        .comparison-table th:first-child {
-            width: 35%;
-        }
+        .comparison-table th:nth-child(1) { width: 34%; }
+        .comparison-table th:nth-child(2) { width: 22%; text-align: center; }
+        .comparison-table th:nth-child(3) { width: 22%; text-align: center; }
+        .comparison-table th:nth-child(4) { width: 22%; text-align: center; }
+        
         .comparison-table td {
             color: var(--text-secondary);
+        }
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3),
+        .comparison-table td:nth-child(4) {
+            text-align: center;
         }
         .comparison-table tr:hover td {
             background: rgba(255, 255, 255, 0.015);
@@ -1216,10 +1228,26 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition-smooth);
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(249, 115, 22, 0.3);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
         }
         .pricing-card.popular {
             border-color: rgba(249, 115, 22, 0.45);
             box-shadow: 0 15px 40px -10px rgba(249, 115, 22, 0.15);
+        }
+        .pricing-card.popular:hover {
+            border-color: rgba(249, 115, 22, 0.6);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
         }
         .pricing-card.popular::before {
             content: 'MOST POPULAR';
