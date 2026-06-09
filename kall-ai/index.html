@@ -1383,6 +1383,106 @@
                 gap: 32px;
             }
         }
+
+        /* Mobile Menu Toggle & Helpers */
+        .mobile-nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .mobile-nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: flex;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(8, 11, 17, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 24px;
+                gap: 28px;
+                z-index: 999;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 10px 0;
+                display: block;
+                width: 100%;
+            }
+
+            /* Hamburger transform to X */
+            .mobile-nav-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-nav-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* Prevent table compression text-wrapping */
+            .comparison-table {
+                table-layout: auto !important;
+            }
+            .comparison-table th, .comparison-table td {
+                min-width: 130px;
+            }
+            .comparison-table th:first-child, .comparison-table td:first-child {
+                min-width: 180px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1399,6 +1499,11 @@
                 <li><button onclick="switchTab('how-it-works')" class="nav-link" id="nav-how-it-works">How it works</button></li>
                 <li><button onclick="switchTab('use-cases')" class="nav-link" id="nav-use-cases">Use cases</button></li>
                 <li><button onclick="switchTab('faq')" class="nav-link" id="nav-faq">FAQ</button></li>
+                <li class="mobile-only" style="margin-top: 15px; width: 100%;">
+                    <button onclick="switchTab('login')" class="btn btn-primary" style="width: 100%; max-width: 280px; padding: 12px 24px; box-shadow: 0 0 15px rgba(249, 115, 22, 0.45);">
+                        Start free &nbsp;➔
+                    </button>
+                </li>
             </ul>
 
             <div class="nav-actions">
@@ -1406,6 +1511,13 @@
                     Start free &nbsp;➔
                 </button>
             </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-nav-toggle" aria-label="Toggle menu" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -2038,6 +2150,14 @@
                 activeLink.classList.add('active-tab');
             }
 
+            // Close mobile menu if open
+            const navMenu = document.querySelector('.nav-menu');
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+
             // Scroll window to top
             window.scrollTo(0, 0);
         }
@@ -2162,6 +2282,16 @@
                     slides[i].classList.remove('active');
                 }
             });
+        }
+
+        // Mobile Navigation Toggle
+        function toggleMobileNav() {
+            const navMenu = document.querySelector('.nav-menu');
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            if (navMenu && navToggle) {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            }
         }
     </script>
 </body>
