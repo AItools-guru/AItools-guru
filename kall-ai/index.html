@@ -2338,12 +2338,12 @@
 
         // Paste your Firebase Config keys here when ready:
         const firebaseConfig = {
-            apiKey: "PLACEHOLDER_API_KEY",
-            authDomain: "PLACEHOLDER_PROJECT_ID.firebaseapp.com",
-            projectId: "PLACEHOLDER_PROJECT_ID",
-            storageBucket: "PLACEHOLDER_PROJECT_ID.appspot.com",
-            messagingSenderId: "PLACEHOLDER_SENDER_ID",
-            appId: "PLACEHOLDER_APP_ID"
+            apiKey: "AIzaSyDr9pS4Z2p_5Z-o_B0NleL6P8_40pS2w",
+            authDomain: "kall-ai-db.firebaseapp.com",
+            projectId: "kall-ai-db",
+            storageBucket: "kall-ai-db.appspot.com",
+            messagingSenderId: "249684992569",
+            appId: "1:249684992569:web:5d57b2e9e2b0200ca2de2a"
         };
 
         // Determine if we have a real Firebase configuration or a placeholder
@@ -2494,11 +2494,26 @@
                 }
 
                 if (isFirebaseLive) {
-                    // Save waitlist email directly to Firestore
-                    db.collection('waitlist').add({
-                        email: email,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    })
+                    // Promise wrapper to add a 5-second safety timeout for Firestore network operations
+                    const promiseWithTimeout = (promise, ms, timeoutMessage) => {
+                        let timeout = new Promise((resolve, reject) => {
+                            let id = setTimeout(() => {
+                                clearTimeout(id);
+                                reject(new Error(timeoutMessage));
+                            }, ms);
+                        });
+                        return Promise.race([promise, timeout]);
+                    };
+
+                    // Save waitlist email directly to Firestore with 5s timeout fallback
+                    promiseWithTimeout(
+                        db.collection('waitlist').add({
+                            email: email,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        }),
+                        5000,
+                        "Connection timed out. Please check your internet, disable ad blockers (which can block Google Firebase), or verify if your Firestore database has finished provisioning."
+                    )
                     .then(() => {
                         showAuthSuccess("✉️ Waitlist Registered! Sign-up is currently invite-only. We've reserved your spot.");
                         document.getElementById('login-email').value = '';
@@ -2507,7 +2522,7 @@
                         btn.innerText = 'Join Waitlist';
                     })
                     .catch((error) => {
-                        showAuthError('❌ Server Error: ' + error.message);
+                        showAuthError('❌ ' + error.message);
                         btn.disabled = false;
                         btn.innerText = 'Join Waitlist';
                     });
@@ -2532,14 +2547,29 @@
                 }
 
                 if (isFirebaseLive) {
-                    // Live Auth verification against Firebase Auth database
-                    auth.signInWithEmailAndPassword(email, password)
+                    // Promise wrapper for Auth timeout
+                    const promiseWithTimeout = (promise, ms, timeoutMessage) => {
+                        let timeout = new Promise((resolve, reject) => {
+                            let id = setTimeout(() => {
+                                clearTimeout(id);
+                                reject(new Error(timeoutMessage));
+                            }, ms);
+                        });
+                        return Promise.race([promise, timeout]);
+                    };
+
+                    // Live Auth verification against Firebase Auth database with 5s timeout
+                    promiseWithTimeout(
+                        auth.signInWithEmailAndPassword(email, password),
+                        5000,
+                        "Authentication request timed out. Please check your connection or try again."
+                    )
                     .then((userCredential) => {
                         showAuthSuccess('✅ Signed in! Launching your Kall AI Cockpit...');
                         simulateAuthRedirect();
                     })
                     .catch((error) => {
-                        showAuthError('❌ Authentication Failed: ' + error.message);
+                        showAuthError('❌ ' + error.message);
                         btn.disabled = false;
                         btn.innerText = 'Sign In';
                     });
