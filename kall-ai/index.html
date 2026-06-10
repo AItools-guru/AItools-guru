@@ -2740,9 +2740,9 @@
                 const btn = document.getElementById('submit-auth-btn');
                 if (btn) { btn.disabled = false; btn.innerText = authMode === 'signup' ? 'Join Waitlist' : 'Sign In'; }
                 try {
-                    window.location.href = 'https://genai-meeting-summarizer.streamlit.app/';
+                    window.location.href = 'https://genai-meeting-summarizer.streamlit.app/?auth=kall-ai-pass-2026';
                 } catch(e) {
-                    showAuthError('Could not redirect to the app. Please try opening https://genai-meeting-summarizer.streamlit.app/ directly.');
+                    showAuthError('Could not redirect to the app. Please try opening https://genai-meeting-summarizer.streamlit.app/?auth=kall-ai-pass-2026 directly.');
                 }
             }, 4000);
         }
