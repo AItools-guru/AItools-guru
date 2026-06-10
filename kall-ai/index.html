@@ -2186,6 +2186,13 @@
                         </button>
                     </form>
 
+                    <!-- Demo credentials hint -->
+                    <div id="demo-credentials-hint" style="display: none; margin-top: 15px; padding: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 0.82rem; color: var(--text-muted); text-align: center; line-height: 1.4;">
+                        <span style="color: var(--accent-orange); font-weight: 600; display: block; margin-bottom: 4px;">💡 Demo / Recruiter Sign In</span>
+                        Email: <strong style="color: #fff; font-family: monospace;">demo@kall-ai.com</strong><br>
+                        Password: <strong style="color: #fff; font-family: monospace;">kallai2026</strong>
+                    </div>
+
                     <div class="login-divider">OR</div>
 
                     <button id="google-auth-btn" onclick="handleGoogleAuth()" class="btn btn-outline" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 0.85rem;">
@@ -2378,6 +2385,7 @@
             const strengthLabel = document.getElementById('pass-strength-label');
             const googleBtnText = document.getElementById('google-auth-btn-text');
 
+            const demoHint = document.getElementById('demo-credentials-hint');
             if (mode === 'signup') {
                 tabSignup.classList.add('active-login');
                 tabSignin.classList.remove('active-login');
@@ -2387,6 +2395,7 @@
                 strengthBar.classList.add('show');
                 strengthLabel.classList.add('show');
                 if (googleBtnText) googleBtnText.innerText = 'Join Waitlist with Google';
+                if (demoHint) demoHint.style.display = 'none';
             } else {
                 tabSignup.classList.remove('active-login');
                 tabSignin.classList.add('active-login');
@@ -2396,6 +2405,7 @@
                 strengthBar.classList.remove('show');
                 strengthLabel.classList.remove('show');
                 if (googleBtnText) googleBtnText.innerText = 'Sign In with Google';
+                if (demoHint) demoHint.style.display = 'block';
             }
         }
 
@@ -2654,6 +2664,15 @@
                     document.getElementById('login-pass').focus();
                     btn.disabled = false;
                     btn.innerText = 'Sign In';
+                    return;
+                }
+
+                // Always allow the demo credentials bypass (works in both live and sandbox mode)
+                if (email === 'demo@kall-ai.com' && password === 'kallai2026') {
+                    setTimeout(() => {
+                        showAuthSuccess('✅ Signed in with Demo Account! Launching your Kall AI Cockpit...');
+                        simulateAuthRedirect();
+                    }, 800);
                     return;
                 }
 
