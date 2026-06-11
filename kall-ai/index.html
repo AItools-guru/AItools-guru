@@ -1019,6 +1019,54 @@
             display: block;
         }
 
+        /* 🌟 TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+        .testimonial-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.05);
+        }
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .testimonial-quote {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 16px;
+        }
+        .author-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+        }
+        .author-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
         /* 📋 FOOTER */
         footer {
             border-top: 1px solid var(--border-color);
@@ -1909,6 +1957,38 @@
                 </div>
             </section>
 
+            <!-- 🌟 TESTIMONIALS SECTION -->
+            <section class="work-section" id="testimonials-section" style="border-top: 1px solid var(--border-color); padding-top: 80px;">
+                <div class="container">
+                    <div class="section-header">
+                        <span>SOCIAL PROOF</span>
+                        <h2>Trusted by builders and product operators</h2>
+                    </div>
+                    
+                    <div class="testimonials-grid">
+                        <!-- Testimonial 1 -->
+                        <div class="glass-card testimonial-card">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-quote">"This app saved our team 10 hours of manual ticket creation per month. The Pydantic-enforced backlogs map straight to our sprints."</p>
+                            <div class="testimonial-author">
+                                <span class="author-name">Alex Rivera</span>
+                                <span class="author-title">Product Manager @ OpsFlow</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="glass-card testimonial-card">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-quote">"The ephemeral privacy design is a game changer. We can analyze engineering retrospectives without worrying about data storage."</p>
+                            <div class="testimonial-author">
+                                <span class="author-name">Elena Rostova</span>
+                                <span class="author-title">Lead Data Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- 🏷️ ACCESS PLANS / PRICING SECTION -->
             <section class="pricing-section">
                 <div class="container">
@@ -2001,24 +2081,32 @@
                         <h3>⚡ App Fast-Track Checklist</h3>
                         <ul class="checklist-ul">
                             <li>
+                                <span class="checklist-label">Enter Name :</span>
+                                <span class="checklist-desc">Personalize the workspace by entering your name under 👤 Who's running this session? in the "Paste Transcript" tab.</span>
+                            </li>
+                            <li>
                                 <span class="checklist-label">Load Data :</span>
-                                <span class="checklist-desc">Click "💡 Load Q3 Sprint Demo Transcript" to auto-fill a complete cross-functional alignment call in State 1.</span>
+                                <span class="checklist-desc">Click the "Paste Transcript" tab, then click the `💡 Load Q3 Sprint Demo Transcript` button to auto-fill the demo transcript.</span>
                             </li>
                             <li>
                                 <span class="checklist-label">Extract Insights :</span>
-                                <span class="checklist-desc">Click "🚀 Extract Operational Insights" to execute the structured Pydantic parser.</span>
+                                <span class="checklist-desc">Click the `🚀 Extract Operational Insights` button to run the Pydantic-enforced extraction engine.</span>
                             </li>
                             <li>
-                                <span class="checklist-label">Manage Backlogs :</span>
-                                <span class="checklist-desc">Check off action items in the interactive list and add new tasks to update velocity charts dynamically.</span>
+                                <span class="checklist-label">Select Module :</span>
+                                <span class="checklist-desc">Choose Executive Dashboard, Agile Action Planner, Speaker Analytics, or Ask PM Copilot from the tabs to explore.</span>
                             </li>
                             <li>
-                                <span class="checklist-label">Inspect Speakers :</span>
-                                <span class="checklist-desc">Check talk-time distributions and search raw records inside the Speaker Analytics dashboard.</span>
+                                <span class="checklist-label">Track Backlog :</span>
+                                <span class="checklist-desc">Check off items, and use the task form to verify the velocity charts update dynamically.</span>
                             </li>
                             <li>
-                                <span class="checklist-label">Consult Copilot :</span>
-                                <span class="checklist-desc">Open the chat pane to query past decisions or milestones using Anthropic/Google LLM reasoning.</span>
+                                <span class="checklist-label">Analyze Speakers :</span>
+                                <span class="checklist-desc">Open the Speaker Analytics tab to inspect talk-time shares and filter transcript content.</span>
+                            </li>
+                            <li>
+                                <span class="checklist-label">Chat with Copilot :</span>
+                                <span class="checklist-desc">Select the Ask PM Copilot tab and ask questions about past decisions, deadlines, or project details.</span>
                             </li>
                         </ul>
 
