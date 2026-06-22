@@ -34,21 +34,19 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 ---
 
-## 🔨 Currently Building
+## 🚀 Next Milestone: Analytics Engineering & Multi-Agent AI
 
-> **10 AI & Data Operations Projects in 10 Days Sprint** 🚀
-> *Active tracking of high-intensity operational and generative AI builds.*
+> **Active Development & Learning Roadmap** 📈
+> *Building production-grade data transformations and agentic automation workflows.*
 
 <div align="left">
-  <strong>Overall Progress: 100%</strong>
-  <img src="https://geps.dev/progress/100" alt="Progress Bar" width="100%"/>
+  <strong>Milestone Progress: 10%</strong>
+  <img src="https://geps.dev/progress/10" alt="Progress Bar" width="100%"/>
 </div>
 
-- [x] **Day 1-2:** Sales Performance BI Dashboard & ETL Pipelines 📊
-- [x] **Day 3-4:** Crypto Automated Data Integration (Docker + SQLite) ⚙️
-- [x] **Day 5-6:** Enterprise AI Decision Playbook & ROI Simulator 🧠
-- [x] **Day 7-8:** GenAI Meeting Summarizer & Action Item Extractor (Anthropic/Gemini) 🎙️
-- [x] **Day 9-10:** VidGist: GenAI YouTube Summarizer (Gemini + Firebase) 🎥
+- [/] **Orchestrating Multi-Agent Loops:** Designing autonomous agentic collaboration frameworks using LangGraph and AutoGen for automated workflow execution. 🤖
+- [ ] **Analytics Engineering (dbt):** Building modular, version-controlled SQL data models, schema tests, and automated data lineage on cloud data platforms. 📊
+- [ ] **MLOps & LLM Evaluation:** Establishing continuous fine-tuning pipelines, latency/cost-tracking telemetry, and automated prompt quality evaluations. ⚙️
 
 ---
 
