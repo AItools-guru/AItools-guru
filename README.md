@@ -41,6 +41,12 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 > <br>
 > <img src="https://geps.dev/progress/100" alt="Completed Sprint Progress Bar" width="50%"/>
 
+- [x] **Day 1-2:** Sales Performance BI Dashboard & ETL Pipelines 📊
+- [x] **Day 3-4:** Crypto Automated Data Integration (Docker + SQLite) ⚙️
+- [x] **Day 5-6:** Enterprise AI Decision Playbook & ROI Simulator 🧠
+- [x] **Day 7-8:** GenAI Meeting Summarizer & Action Item Extractor (Anthropic/Gemini) 🎙️
+- [x] **Day 9-10:** VidGist: GenAI YouTube Summarizer (Gemini + Firebase) 🎥
+
 ---
 
 ## 🚀 Next Milestone: Analytics Engineering & Multi-Agent AI
