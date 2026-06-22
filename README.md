@@ -34,6 +34,15 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 ---
 
+## 🏆 Completed Sprints & Achievements
+
+> **10-Day AI & Data Operations Sprint (100% Complete)** 🎓
+> *Successfully designed, built, and shipped 5 production-grade applications in 10 days.*
+> <br>
+> <img src="https://geps.dev/progress/100" alt="Completed Sprint Progress Bar" width="50%"/>
+
+---
+
 ## 🚀 Next Milestone: Analytics Engineering & Multi-Agent AI
 
 > **Active Development & Learning Roadmap** 📈
@@ -41,7 +50,8 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 <div align="left">
   <strong>Milestone Progress: 10%</strong>
-  <img src="https://geps.dev/progress/10" alt="Progress Bar" width="100%"/>
+  <br>
+  <img src="https://geps.dev/progress/10" alt="Progress Bar" width="50%"/>
 </div>
 
 - [/] **Orchestrating Multi-Agent Loops:** Designing autonomous agentic collaboration frameworks using LangGraph and AutoGen for automated workflow execution. 🤖
