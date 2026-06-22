@@ -40,15 +40,15 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 > *Active tracking of high-intensity operational and generative AI builds.*
 
 <div align="left">
-  <strong>Overall Progress: 60%</strong>
-  <img src="https://geps.dev/progress/60" alt="Progress Bar" width="100%"/>
+  <strong>Overall Progress: 100%</strong>
+  <img src="https://geps.dev/progress/100" alt="Progress Bar" width="100%"/>
 </div>
 
 - [x] **Day 1-2:** Sales Performance BI Dashboard & ETL Pipelines 📊
 - [x] **Day 3-4:** Crypto Automated Data Integration (Docker + SQLite) ⚙️
 - [x] **Day 5-6:** Enterprise AI Decision Playbook & ROI Simulator 🧠
 - [x] **Day 7-8:** GenAI Meeting Summarizer & Action Item Extractor (Anthropic/Gemini) 🎙️
-- [ ] **Day 9-10:** Automated PM Copilot & Multi-Agent Analytics Reporter 🤖
+- [x] **Day 9-10:** VidGist: GenAI YouTube Summarizer (Gemini + Firebase) 🎥
 
 ---
 
@@ -62,7 +62,7 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 
 #### Core Technologies & Development
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=py,postgres,sqlite,html,css,js,git,docker,vscode,linux&perline=10" />
+  <img src="https://skillicons.dev/icons?i=py,postgres,sqlite,html,css,js,git,docker,githubactions,vscode,linux&perline=11" />
 </a>
 
 <br>
