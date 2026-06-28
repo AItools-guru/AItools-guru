@@ -1,107 +1,81 @@
-# Kall AI: Premium Feature Roadmap
+# Kall AI: Next-Level Product Pivot & Multi-Branch Roadmap
 
-You are exactly right—we don't have these features *yet*. But that is the beauty of a waitlist! You sell the vision on the landing page, get people excited to sign up, and then we build these features out while they wait. 
+To stand out in the crowded 2026 AI productivity space, **Kall AI is transitioning from a generic meeting summarizer into a universal "Speech-to-Action Engine."**
 
-Here is exactly how we will build them, what tools we need to add to your current stack, and what it will cost you.
-
-## 1. One-Click Jira / Linear Sync
-* **How we build it:** We will add standard API calls to the backend of your Python Streamlit app. When a user clicks "Sync", your app will take the JSON output from Pydantic and send a `POST` request directly to Jira.
-* **New Tools Needed:** Just two free Python libraries (`atlassian-python-api` and `requests`).
-* **Cost to You:** **$0.** Connecting to Jira's API is completely free for developers.
-
-## 2. Private User Accounts & Meeting Library
-* **How we build it:** Right now, your app forgets everything when the browser closes. We need to add an Authentication system (to log users in) and a Database (to save their past transcripts).
-* **New Tools Needed:** **Firebase**. We will integrate Firebase Authentication (for Google Sign-in) and Firebase Firestore (a NoSQL database) into your Streamlit app. I noticed we already have the Firebase SDKs drafted in your landing page HTML!
-* **Cost to You:** **$0.** Firebase has a highly generous "Spark" Free Tier. You can store 1GB of database text and have up to 50,000 users logging in every month without paying a single cent.
-
-## 3. Custom Schemas & Team Templates
-* **How we build it:** We will add a "Settings" tab in your Streamlit app. Users can type in the specific fields they want extracted (e.g., "Add a field for T-Shirt Size"). We will use Python to dynamically generate a new Pydantic schema on the fly based on their settings, and feed that to Gemini.
-* **New Tools Needed:** None. We already have Streamlit and Pydantic.
-* **Cost to You:** **$0.**
-
-## 4. Massive Audio Limits (2-Hour Meetings)
-* **How we build it:** The Gemini 1.5 Pro model you are already using actually supports massive 2-million token context windows. However, Streamlit struggles to upload massive 500MB video/audio files directly through the browser. We will add a feature to upload the raw audio to Firebase Storage first, and then send the storage link to Gemini for processing.
-* **New Tools Needed:** Firebase Storage (for temporarily holding the large audio files).
-* **Cost to You:** **$0 to start.** Firebase Storage gives you 5GB of free storage. 
+Instead of limiting the product to developers and Jira, we are expanding it to support multiple target profiles. The core technology parses unstructured conversations and records, extracts structured data schemas via dynamic Pydantic definitions, and routes them to user-defined software platforms.
 
 ---
 
-### Total Stack Review & Final Costs
+## 🧭 The 4 Product Branches
 
-Right now, your entire application is capable of running for **essentially $0 per month**.
+Kall AI will offer four distinct "Workspace Modes," each tailored to a specific professional workflow:
 
-| Tool | Purpose | Cost |
-| :--- | :--- | :--- |
-| **Streamlit / GitHub** | App Hosting & UI | $0 (Free forever) |
-| **Cloudflare Pages** | Landing Page Hosting | $0 (Free forever) |
-| **Firebase** | User Logins & Database | $0 (Free until you hit ~50k monthly active users) |
-| **Jira / Linear APIs** | Ticket Syncing | $0 |
-| **Google Gemini API** | AI Extraction Engine | **Free Tier:** 15 requests per minute.<br>**Paid Tier:** If you get hundreds of users processing massive audio files every day, you switch to pay-as-you-go (Roughly $0.05 to $0.10 per large meeting). |
-
-**The Strategy:** We can build **100% of this roadmap using your existing tools plus Firebase**. You will incur zero fixed monthly server costs. You only start paying pennies to Google for API usage *after* you have tons of active users, at which point you will be charging them a monthly subscription fee!
-
----
-
-### 🚀 Future Vision: Premium UI Overhaul (Post-100 Users)
-
-Once Kall AI reaches **100+ active waitlist users**, we should consider transitioning from Streamlit to a professional frontend stack (**Next.js + Tailwind CSS** running on a **FastAPI** Python backend). This will unlock:
-*   **Pixel-Perfect Design Control:** Replicating custom glassmorphism cards, animations, and custom sidebars seamlessly.
-*   **Sub-Second Load Times:** Eliminating Streamlit's full-page refresh lag on button clicks.
-*   **Production-Grade Scaling:** Allowing you to sell a premium-feeling enterprise suite that commands higher subscription values.
+1.  **💻 Developer & Product PM Branch (Dev-to-Task)**
+    *   **Workflow**: Converts sprint planning and standups into engineering backlogs.
+    *   **Outputs**: Jira tickets, Linear issues, GitHub issues, branch naming conventions, story points.
+2.  **🎙️ Personal Dictation & Idea Branch (Voice-to-Life)**
+    *   **Workflow**: Transforms messy voice memos, stream-of-consciousness, or driving notes into clean, structured notes.
+    *   **Outputs**: Notion pages, Todoist tasks, Google/Apple calendar events, sorted markdown lists.
+3.  **🤝 SDR & Customer Success Branch (Call-to-CRM)**
+    *   **Workflow**: Captures client discovery or support check-in calls.
+    *   **Outputs**: HubSpot/Salesforce logs, automated client follow-up email drafts.
+4.  **💼 Consultant & Agency Owner Branch (Scope-to-Contract)**
+    *   **Workflow**: Transcribes project onboarding or scoping discussions.
+    *   **Outputs**: Statement of Work (SOW) PDF drafts, Stripe invoice drafts with line items.
 
 ---
 
-## 🗺️ Visual Roadmap Flowchart (Status as of Version 7)
+## 🚀 The Multi-Branch Roadmap
 
-![Visual Roadmap Flowchart](visual_roadmap_flowchart.png)
+### Phase 10: Production OAuth2 Integrations (Up Next)
+*   **Jira, Linear & GitHub Connectors**: Authenticate developer accounts and export tickets directly to backlogs.
+*   **Zapier / Make.com Webhook Hub**: Integrate a generic webhook endpoint. This unlocks integrations with **Notion, HubSpot, Todoist, and Stripe** immediately with zero custom backend logic.
 
-### Mermaid Flowchart Code
+### Phase 11: Bot-Free WebRTC Browser Audio Capture (Up Next)
+*   **Tab & System Audio Recording**: Allow users to capture Google Meet or Zoom audio directly from their Chrome tab without installing plugins or inviting recording bots.
+
+### Phase 12: Persistent Workspace Library & RAG search
+*   **Sidebar Session History**: Store past meeting logs in Firebase Firestore.
+*   **Cross-Meeting Copilot**: Search and query across all history (e.g. *"What deliverables did we promise John last month?"*).
+
+### Phase 13: Next.js + FastAPI SaaS Overhaul
+*   **Next.js Frontend**: Snappy React interface to replace Streamlit, allowing collaborative editing of tasks and drafts before exporting them.
+*   **FastAPI Backend**: Python-based API service to handle audio transcription, Pydantic parsing, and webhook routing.
+
+---
+
+## 🗺️ Visual Flowchart
+
 ```mermaid
 graph TD
-    %% Define Styles
     classDef done fill:#1e293b,stroke:#34d399,stroke-width:2px,color:#f8fafc;
     classDef current fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
     classDef next fill:#0f172a,stroke:#475569,stroke-width:1px,color:#94a3b8;
 
     subgraph Completed["✅ Completed Milestones"]
-        M1["Phase 1: App Core Architecture<br/>(June 8, 2026)<br/>- Streamlit Cockpit UI & configuration<br/>- Dark-mode glassmorphic theme styling<br/>- Demo transcript loader integration"]:::done
-        M2["Phase 2: Resilient LLM Engines<br/>(June 9, 2026)<br/>- Dual provider support (Gemini & Claude)<br/>- Gemini fallback loop (2.5-Pro -> Flash -> 3.1-Lite)<br/>- Custom in-memory key overrides & validation"]:::done
-        M3["Phase 3: Audio & Parser Pipeline<br/>(June 10, 2026)<br/>- Native large audio uploads (Gemini Files API)<br/>- Regex-based inline speaker timeline parser<br/>- Dynamic analytics dashboard widgets"]:::done
-        M4["Phase 4: Safeguards & UI Polish<br/>(June 11, 2026)<br/>- Engine capability markers (Audio & Text vs Text Only)<br/>- Audio upload auto-toggle to Gemini safety check<br/>- Swapped API keys layout & expanded demo script"]:::done
-        M5["Phase 5: Native Audio Processing<br/>(June 17, 2026)<br/>- Resumable background uploads for large audio files<br/>- Unified Drag-and-Drop audio uploader tabs<br/>- Temporary storage safety controls & deletion handlers"]:::done
-        M6["Phase 6: Meeting Templates & Notepad Upgrade<br/>(June 20, 2026)<br/>- Consolidated 1:1 and General Business templates<br/>- Responsive, color-coded dashboard layouts<br/>- PDF & Markdown export compiler alignment"]:::done
-        M7["Phase 7: Google Search Console & Technical SEO<br/>(June 22, 2026)<br/>- Verified domain ownership via HTML meta tags<br/>- Deployed standard sitemap.xml & robots.txt<br/>- Requested manual indexing on GSC to bypass typo-filter"]:::done
+        M1["Phase 1-6: App Core & Audio Pipeline - Done"]:::done
+        M2["Phase 7-9: Production Foundation - Done"]:::done
     end
 
-    subgraph Pipeline["🚀 Upcoming Pipeline"]
-        N1["Phase 8: Jira Synchronization (Up Next)<br/>- Jira OAuth authentication setup<br/>- Pydantic backlog-to-issue field mapper<br/>- One-click bulk Jira task creation"]:::current
-        N2["Phase 9: Integrations & Sharing<br/>- Slack alert notifications for backlog items<br/>- ICS calendar generation for meeting dates<br/>- Secure offline HTML report exports"]:::next
-        N3["Phase 10: Advanced PM Analytics<br/>- Team velocity prediction models<br/>- Long-term dashboard cohort tracking<br/>- Cross-meeting operational review trends"]:::next
+    subgraph Phase1["🚀 Phase 1: Multi-Branch & Zapier Hub"]
+        N1["OAuth2 Dev Connectors - Active"]:::current
+        N2["Zapier & Webhook Routing - Active"]:::current
+    end
+
+    subgraph Phase2["⚡ Phase 2: WebRTC Recording & Memory"]
+        N3["WebRTC Tab Recording"]:::next
+        N4["Persistent RAG Database"]:::next
+    end
+
+    subgraph Phase3["💎 Phase 3: Premium Rebuild"]
+        N5["Next.js & FastAPI Overhaul"]:::next
     end
 
     M1 --> M2
-    M2 --> M3
-    M3 --> M4
-    M4 --> M5
-    M5 --> M6
-    M6 --> M7
-    M7 ==> N1
-    N1 --> N2
+    M2 ==> N1
+    M2 ==> N2
+    N1 --> N3
     N2 --> N3
+    N3 --> N4
+    N4 ==> N5
 ```
-
-## 🛠️ Roadmap Specifications
-
-| Phase | Title | Scope & Details | Status | Completed Date |
-| :--- | :--- | :--- | :--- | :--- |
-| **Phase 1** | App Core Architecture | Streamlit Cockpit UI & configuration | **Complete** | June 8, 2026 |
-| **Phase 2** | Resilient LLM Engines | Dual provider support (Gemini & Claude) | **Complete** | June 9, 2026 |
-| **Phase 3** | Audio & Parser Pipeline | Native large audio uploads (Gemini Files API) | **Complete** | June 10, 2026 |
-| **Phase 4** | Safeguards & UI Polish | Engine capability markers (Audio & Text vs Text Only) | **Complete** | June 11, 2026 |
-| **Phase 5** | Native Audio Processing | Resumable background uploads for large audio files | **Complete** | June 17, 2026 |
-| **Phase 6** | Meeting Templates & Notepad Upgrade | Consolidated 1:1 and General Business templates | **Complete** | June 20, 2026 |
-| **Phase 7** | Google Search Console & Technical SEO | Verified domain ownership via HTML meta tags | **Complete** | June 22, 2026 |
-| **Phase 8** | Jira Synchronization | Jira OAuth authentication setup | **Up Next** | Planned |
-| **Phase 9** | Integrations & Sharing | Slack alert notifications for backlog items | Planned | Planned |
-| **Phase 10** | Advanced PM Analytics | Team velocity prediction models | Planned | Planned |
-
