@@ -31,8 +31,9 @@ graph TD
     subgraph Pipeline["🚀 Upcoming Pipeline"]
         N1["Phase 10: OAuth2 Jira & Linear Sync"]:::current
         N2["Phase 11: WebRTC Tab Audio Capture"]:::current
-        N3["Phase 12: Persistent RAG Memory"]:::next
-        N4["Phase 13: Next.js Rebuild"]:::next
+        N3["Phase 12: Persistent RAG Memory & Paywall Gate"]:::next
+        N4["Phase 13: Chrome Extension Lead Magnet Launch"]:::next
+        N5["Phase 14: Next.js & FastAPI Rebuild"]:::next
     end
 
     M1 --> M2
@@ -48,6 +49,7 @@ graph TD
     N1 --> N3
     N2 --> N3
     N3 ==> N4
+    N4 ==> N5
 ```
 
 ## 🛠️ Roadmap Specifications
@@ -65,5 +67,6 @@ graph TD
 | **Phase 9** | Jira Sync & Theme Customization | Passwordless Sandbox Simulation Mode, 4-Theme Picker Modal, brand logo x=24px, Settings label, FAB Help, crisp edges | **Complete** | June 25, 2026 |
 | **Phase 10** | Jira & Linear OAuth2 Sync | Export Pydantic-parsed action items directly to active Jira Cloud and Linear backlogs. | **Up Next** | Planned |
 | **Phase 11** | WebRTC Tab Capture | Record system and browser tab audio directly from the Chrome webpage without bots. | **Up Next** | Planned |
-| **Phase 12** | Persistent RAG Memory | Add a persistent dashboard sidebar for past sessions and a search chat assistant. | Planned | Planned |
-| **Phase 13** | Next.js SaaS Rebuild | Rebuild frontend in Next.js + Tailwind for sub-second responses and SaaS-grade UI. | Planned | Planned |
+| **Phase 12** | Persistent RAG Memory & Paywall | Store sessions in Firestore. Introduce $19/mo Pro paywall gating vector database history search. | Planned | Planned |
+| **Phase 13** | Chrome Extension Launch | Publish the free LinkedIn exporter extension as an organic acquisition lead magnet. | Planned | Planned |
+| **Phase 14** | Next.js SaaS Rebuild | Rebuild frontend in Next.js + Tailwind for sub-second responses and SaaS-grade UI. | Planned | Planned |

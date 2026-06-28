@@ -34,11 +34,15 @@ Kall AI will offer four distinct "Workspace Modes," each tailored to a specific 
 ### Phase 11: Bot-Free WebRTC Browser Audio Capture (Up Next)
 *   **Tab & System Audio Recording**: Allow users to capture Google Meet or Zoom audio directly from their Chrome tab without installing plugins or inviting recording bots.
 
-### Phase 12: Persistent Workspace Library & RAG search
+### Phase 12: Persistent Workspace Library & RAG Search (**Payment Gateway Introduced Here**)
 *   **Sidebar Session History**: Store past meeting logs in Firebase Firestore.
 *   **Cross-Meeting Copilot**: Search and query across all history (e.g. *"What deliverables did we promise John last month?"*).
+*   **Stripe Subscription Checkout**: Introduce the **Pro Tier** ($19/mo) gating persistent database storage and RAG search history.
 
-### Phase 13: Next.js + FastAPI SaaS Overhaul
+### Phase 13: Chrome Extension Lead Magnet Launch
+*   **LinkedIn Analytics Exporter**: Package and publish the `kall-linkedin-exporter.zip` Chrome Extension publicly. Use it as a free marketing lead magnet to drive content creators, agency leads, and founders to Kall AI.
+
+### Phase 14: Next.js + FastAPI SaaS Overhaul
 *   **Next.js Frontend**: Snappy React interface to replace Streamlit, allowing collaborative editing of tasks and drafts before exporting them.
 *   **FastAPI Backend**: Python-based API service to handle audio transcription, Pydantic parsing, and webhook routing.
 
@@ -64,11 +68,12 @@ graph TD
 
     subgraph Phase2["⚡ Phase 2: WebRTC Recording & Memory"]
         N3["WebRTC Tab Recording"]:::next
-        N4["Persistent RAG Database"]:::next
+        N4["Persistent RAG Database & Paywall Gate"]:::next
     end
 
-    subgraph Phase3["💎 Phase 3: Premium Rebuild"]
-        N5["Next.js & FastAPI Overhaul"]:::next
+    subgraph Phase3["💎 Phase 3: Extension Launch & SaaS Rebuild"]
+        N5["Chrome Extension Lead Magnet Launch"]:::next
+        N6["Next.js & FastAPI Rebuild"]:::next
     end
 
     M1 --> M2
@@ -78,4 +83,5 @@ graph TD
     N2 --> N3
     N3 --> N4
     N4 ==> N5
+    N5 --> N6
 ```
