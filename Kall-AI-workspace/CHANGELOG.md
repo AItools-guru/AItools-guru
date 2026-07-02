@@ -2,6 +2,15 @@
 
 This document tracks all updates from Day 1 across all repositories (Dashboard, Landing Page, and Root), ordered by date and time.
 
+### Thursday, July 2, 2026 (05:20 AM)
+**`feat: implement Supabase Auth gate, session-isolated clients, and logout logic`** (Repo: dashboard)
+* Replaced the passcode-only access gate with a tabbed interface offering Log In, Create Account (Sign Up), and Sandbox Mode (Passcode protected).
+* Refactored the database client to instantiate and store Supabase client connections in `st.session_state` rather than a global module-level variable, ensuring 100% session isolation in Streamlit's multi-user process.
+* Integrated the user account UUID (`res.user.id`) into database and RLS-enforced queries, enabling users to register, sign in, and privately sync/fetch their transcripts and settings.
+* Added a dynamic "Log Out" / "Exit Sandbox" option to the Settings popover to clean user credentials and reset the gate.
+
+---
+
 ### Thursday, July 2, 2026 (05:00 AM)
 **`fix: resolve Jira/Linear OAuth redirect URI mismatch and clean up unused script files`** (Repo: dashboard)
 * Fixed issue tracker OAuth authorization links in the cockpit startup screen configuration panel to dynamically url-encode `OAUTH_REDIRECT_URI` instead of hardcoding localhost:8502. This resolves OAuth callback errors when running in staging or custom production URLs.
