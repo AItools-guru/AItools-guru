@@ -2,6 +2,13 @@
 
 This document tracks all updates from Day 1 across all repositories (Dashboard, Landing Page, and Root), ordered by date and time.
 
+### Friday, July 3, 2026 (11:15 PM)
+**`fix: resolve sandbox auto-login redirect loop on session logout`** (Repo: dashboard)
+* Fixed a redirection loop where logging out of a sandbox session (?sandbox=1) immediately re-authenticated the user.
+* Updated the `hdr_logout` button handler inside `main_app.py` to delete `"sandbox"` and `"auth"` parameters from `st.query_params` before executing `st.rerun()`.
+
+---
+
 ### Thursday, July 2, 2026 (05:20 AM)
 **`feat: implement Supabase Auth gate, session-isolated clients, and logout logic`** (Repo: dashboard)
 * Replaced the passcode-only access gate with a tabbed interface offering Log In, Create Account (Sign Up), and Sandbox Mode (Passcode protected).
