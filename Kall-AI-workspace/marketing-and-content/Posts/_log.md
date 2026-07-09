@@ -1,0 +1,5 @@
+Day_01_2026-06-16 | text | story | shipped | hook: "The fastest lesson I have learned since launching Kall AI."
+Day_02_2026-06-17 | carousel_6 | hot_take | drafted_manual | hook: "Whisper is dead for product teams."
+Day_03_2026-06-19 | video_60 | story | drafted | hook: "I timed it. 12 seconds."
+Day_04_2026-06-21 | poll | default | drafted | hook: "I tracked my meeting hours for one sprint."
+Day_05_2026-06-25 | text | hot_take | drafted | hook: "Your VP of Legal has no idea what your meeting bot stores."

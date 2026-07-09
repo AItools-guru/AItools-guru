@@ -65,8 +65,8 @@ graph TD
 | **Phase 7** | Google Search Console & Technical SEO | Verified domain ownership via HTML meta tags | **Complete** | June 22, 2026 |
 | **Phase 8** | Cloudflare CDN & DNS Security | Deployed Cloudflare CNAME WAF proxy for app subdomain, configured active WAF rate limiting (5 req/10s per IP), enforced SSL Edge redirection & DMARC txt records, and stitched high-res vertical uploader before/after banner. | **Complete** | June 23, 2026 |
 | **Phase 9** | Jira Sync & Theme Customization | Passwordless Sandbox Simulation Mode, 4-Theme Picker Modal, brand logo x=24px, Settings label, FAB Help, crisp edges | **Complete** | June 25, 2026 |
-| **Phase 10** | Jira & Linear OAuth2 Sync | Export Pydantic-parsed action items directly to active Jira Cloud and Linear backlogs. | **Up Next** | Planned |
+| **Phase 10** | Jira & Linear OAuth2 Sync | Export Pydantic-parsed action items directly to active Jira Cloud and Linear backlogs. | **Complete** | July 2, 2026 |
 | **Phase 11** | WebRTC Tab Capture | Record system and browser tab audio directly from the Chrome webpage without bots. | **Up Next** | Planned |
-| **Phase 12** | Persistent RAG Memory & Paywall | Store sessions in Firestore. Introduce $19/mo Pro paywall gating vector database history search. | Planned | Planned |
+| **Phase 12** | Persistent RAG Memory & Paywall | Store sessions in Firestore/Supabase. Introduce $19/mo Pro paywall gating vector database history search. | **In Progress** | Active |
 | **Phase 13** | Chrome Extension Launch | Publish the free LinkedIn exporter extension as an organic acquisition lead magnet. | Planned | Planned |
 | **Phase 14** | Next.js SaaS Rebuild | Rebuild frontend in Next.js + Tailwind for sub-second responses and SaaS-grade UI. | Planned | Planned |

@@ -2,6 +2,15 @@
 
 This document tracks all updates from Day 1 across all repositories (Dashboard, Landing Page, and Root), ordered by date and time.
 
+### Wednesday, July 8, 2026 (12:55 AM)
+**`feat: implement secure history storage opt in and privacy policy updates`** (Repo: dashboard, landing_page, root)
+* Added a secure history toggle checkbox to the cockpit input panel, allowing authenticated users to opt in before saving transcripts to Supabase.
+* Disabled automatic transcript and summary database writes for all sandbox and unauthenticated users.
+* Updated test_kall_ai_e2e.py to support the new login gate tabs, check for modal visibility dynamically, and run sandbox bypasses.
+* Updated the Privacy Policy modals in index.html and 404.html to clarify that sandbox data is ephemeral and storage is strictly opt in.
+
+---
+
 ### Friday, July 3, 2026 (11:15 PM)
 **`fix: resolve sandbox auto-login redirect loop on session logout`** (Repo: dashboard)
 * Fixed a redirection loop where logging out of a sandbox session (?sandbox=1) immediately re-authenticated the user.

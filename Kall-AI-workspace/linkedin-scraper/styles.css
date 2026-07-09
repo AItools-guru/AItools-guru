@@ -1,0 +1,31 @@
+#kall-ai-exporter-btn {
+  position: fixed !important;
+  bottom: 40px !important;
+  left: 40px !important;
+  z-index: 999999999 !important;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 14px 24px !important;
+  border-radius: 50px !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.2s ease-in-out !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+#kall-ai-exporter-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 15px 35px rgba(49, 46, 129, 0.6) !important;
+  background: linear-gradient(135deg, #312e81 0%, #4338ca 100%) !important;
+}
+
+#kall-ai-exporter-btn:active {
+  transform: translateY(-1px) !important;
+}

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Kall AI LinkedIn Analytics Exporter",
+  "version": "1.2.0",
+  "description": "Scrapes and exports LinkedIn Recent Activity post impressions and engagement metrics.",
+  "permissions": ["activeTab", "scripting", "downloads"],
+  "host_permissions": ["https://www.linkedin.com/in/*/recent-activity*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/in/*/recent-activity*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

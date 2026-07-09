@@ -27,15 +27,15 @@ Kall AI will offer four distinct "Workspace Modes," each tailored to a specific 
 
 ## 🚀 The Multi-Branch Roadmap
 
-### Phase 10: Production OAuth2 Integrations (Up Next)
+### Phase 10: Production OAuth2 Integrations (Complete)
 *   **Jira, Linear & GitHub Connectors**: Authenticate developer accounts and export tickets directly to backlogs.
 *   **Zapier / Make.com Webhook Hub**: Integrate a generic webhook endpoint. This unlocks integrations with **Notion, HubSpot, Todoist, and Stripe** immediately with zero custom backend logic.
 
 ### Phase 11: Bot-Free WebRTC Browser Audio Capture (Up Next)
 *   **Tab & System Audio Recording**: Allow users to capture Google Meet or Zoom audio directly from their Chrome tab without installing plugins or inviting recording bots.
 
-### Phase 12: Persistent Workspace Library & RAG Search (**Payment Gateway Introduced Here**)
-*   **Sidebar Session History**: Store past meeting logs in Firebase Firestore.
+### Phase 12: Persistent Workspace Library & RAG Search (In Progress - Active) (Payment Gateway Introduced Here)
+*   **Sidebar Session History**: Store past meeting logs in Supabase / PostgreSQL.
 *   **Cross-Meeting Copilot**: Search and query across all history (e.g. *"What deliverables did we promise John last month?"*).
 *   **Stripe Subscription Checkout**: Introduce the **Pro Tier** ($19/mo) gating persistent database storage and RAG search history.
 
