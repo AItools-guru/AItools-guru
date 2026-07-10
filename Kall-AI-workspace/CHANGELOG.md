@@ -2,6 +2,15 @@
 
 This document tracks all updates from Day 1 across all repositories (Dashboard, Landing Page, and Root), ordered by date and time.
 
+### Thursday, July 9, 2026 (11:25 PM)
+**`feat: deploy WebRTC Tab Audio Recorder and release OAuth integrations`** (Repo: dashboard, landing_page, root)
+* Resolved a JavaScript variable scope and context exception inside the injected WebRTC script tag by migrating closure credentials directly onto `window.kallAiRecorder`.
+* Fixed a Content Security Policy (CSP) blocking issue by replacing the inline HTML `'onclick'` attribute with a direct JavaScript assignment (`recordBtn.onclick`).
+* Cleaned up the settings drawer by removing the temporary OAuth keys environment check variables.
+* Shortened recorder buttons to 'Start Recording' and 'Stop & Save', and updated the startup quickstart modal and landing page instructions to match.
+
+---
+
 ### Wednesday, July 8, 2026 (12:55 AM)
 **`feat: implement secure history storage opt in and privacy policy updates`** (Repo: dashboard, landing_page, root)
 * Added a secure history toggle checkbox to the cockpit input panel, allowing authenticated users to opt in before saving transcripts to Supabase.
