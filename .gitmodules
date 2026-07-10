@@ -1,0 +1,6 @@
+[submodule "Kall-AI-workspace/dashboard"]
+	path = Kall-AI-workspace/dashboard
+	url = https://github.com/AItools-guru/GenAI-Meeting-Summarizer.git
+[submodule "Kall-AI-workspace/landing-page"]
+	path = Kall-AI-workspace/landing-page
+	url = https://github.com/AItools-guru/kall-ai-landing.git
