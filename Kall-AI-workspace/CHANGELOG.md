@@ -2,6 +2,14 @@
 
 This document tracks all updates from Day 1 across all repositories (Dashboard, Landing Page, and Root), ordered by date and time.
 
+### Thursday, July 9, 2026 (11:35 PM)
+**`fix: resolve stale iframe closure event bindings for WebRTC recorder`** (Repo: dashboard, root)
+* Fixed a stale closure issue where Streamlit reruns destroyed the iframe execution context, rendering parent document button click events inactive.
+* Relocated parent script injection to execute on every rerun (before duplicate UI checks).
+* Migrated event handler binding inside the parent document context, guaranteeing the button onclick listener is dynamically updated and never loses reference.
+
+---
+
 ### Thursday, July 9, 2026 (11:25 PM)
 **`feat: deploy WebRTC Tab Audio Recorder and release OAuth integrations`** (Repo: dashboard, landing_page, root)
 * Resolved a JavaScript variable scope and context exception inside the injected WebRTC script tag by migrating closure credentials directly onto `window.kallAiRecorder`.
