@@ -2,6 +2,14 @@
 
 This document tracks all updates from Day 1 across all repositories (Dashboard, Landing Page, and Root), ordered by date and time.
 
+### Saturday, July 11, 2026 (02:00 AM)
+**`fix: resolve WebRTC recorder detached iframe context exceptions`** (Repo: dashboard, root)
+* Restructured the injected script to compile WebRTC recorder methods (`startCapture`, `downloadLocally`) and event listener callbacks using the parent window's `Function` constructor.
+* This execution model binds and evaluates functions in the parent window's persistent global scope, preventing them from losing access to browser globals (like `navigator.mediaDevices` or `fetch`) or throwing exceptions when Streamlit destroys and recreates the component iframe on rerun.
+* Fixed a JS syntax error (`SyntaxError: Invalid or unexpected token`) caused by literal newlines in JavaScript alert string parameters inside the Function constructor by double-escaping the backslash characters (`\\\\n`).
+
+---
+
 ### Thursday, July 9, 2026 (11:35 PM)
 **`fix: resolve stale iframe closure event bindings for WebRTC recorder`** (Repo: dashboard, root)
 * Fixed a stale closure issue where Streamlit reruns destroyed the iframe execution context, rendering parent document button click events inactive.
