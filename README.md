@@ -55,13 +55,13 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
 > *Building production-grade data transformations and agentic automation workflows.*
 
 <div align="left">
-  <strong>Milestone Progress: 10%</strong>
+  <strong>Milestone Progress: 35%</strong>
   <br>
-  <img src="https://geps.dev/progress/10" alt="Progress Bar" width="50%"/>
+  <img src="https://geps.dev/progress/35" alt="Progress Bar" width="50%"/>
 </div>
 
-- [/] **Orchestrating Multi-Agent Loops:** Designing autonomous agentic collaboration frameworks using LangGraph and AutoGen for automated workflow execution. 🤖
-- [ ] **Analytics Engineering (dbt):** Building modular, version-controlled SQL data models, schema tests, and automated data lineage on cloud data platforms. 📊
+- [x] **Orchestrating Multi-Agent Loops:** Designed autonomous agentic collaboration frameworks using LangGraph and AutoGen patterns — shipped in CringeShield & Kall AI Copilot. 🤖
+- [/] **Analytics Engineering (dbt):** Building modular, version-controlled SQL data models, schema tests, and automated data lineage on cloud data platforms. 📊
 - [ ] **MLOps & LLM Evaluation:** Establishing continuous fine-tuning pipelines, latency/cost-tracking telemetry, and automated prompt quality evaluations. ⚙️
 
 ---
@@ -169,6 +169,32 @@ fun_fact: "If a task requires manual repetition more than twice, I build a pipel
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
       </p>
       <a href="https://github.com/AItools-guru/sales-performance-portfolio">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/">🚀 Live Dashboard</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>🛡️ CringeShield: LinkedIn Post De-Cringer</h3>
+      <p><strong>Client-Side AI Writing Tool</strong></p>
+      <p>100% private web app that audits LinkedIn posts with a real-time Cringe Meter, de-cringes via Gemini AI using 4 copywriting frameworks (PAS, AIDA, Hook-CTA, Contrarian), and exports PDF carousel slides in 5 themes.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Gemini-8E75C2?style=flat-square&logo=googlegemini&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
+      </p>
+      <a href="https://github.com/AItools-guru/cringeshield">📂 Explore Code</a> | <a href="https://aitools-guru.github.io/cringeshield/">🚀 Live Demo</a>
+    </td>
+    <td width="50%" valign="top" style="border: 1px solid #30363d; border-radius: 8px; padding: 15px; background: #0d1117;">
+      <h3>📈 Crypto ETL Pipeline</h3>
+      <p><strong>Automated Data Integration System</strong></p>
+      <p>Fully automated Docker-based pipeline that ingests live crypto market data, runs transformation logic, and stores normalized records in SQLite — schedulable end-to-end with zero manual intervention.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+        <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+        <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" />
+      </p>
+      <a href="https://github.com/AItools-guru/crypto-etl-pipeline">📂 Explore Code</a>
     </td>
   </tr>
   <tr>
