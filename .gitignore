@@ -1,0 +1,63 @@
+# ── macOS ──────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# ── Python ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.venv_debug/
+venv/
+env/
+*.egg-info/
+
+# ── Node / Vite ─────────────────────────────────────────
+node_modules/
+dist/
+.cache/
+
+# ── Secrets & credentials ──────────────────────────────
+*.env
+.env*
+!.env.example
+secrets/
+credentials/
+
+# ── Local workspace folders (not part of profile repo) ─
+Kall-AI-workspace/
+AI Suite tools/
+Claude Testing/
+ODP PPT Antigravity project/
+Resume Editor/
+scratch/
+.agent/
+.agents/
+.gsd/
+.claude/
+
+# ── Project sub-repos (have their own remotes) ──────────
+crypto-etl-pipeline/
+enterprise-ai-playbook/
+sales-performance-portfolio/
+sales-performance-dashboard/
+genai-meeting-summarizer/
+portfolio/portfolio_index_code.txt
+
+# ── Misc local files ────────────────────────────────────
+*.docx
+*.pdf
+*.zip
+*.png
+!README_assets/
+linkedin_banner.*
+GSD-STYLE.md
+PROJECT_RULES.md
+README_UPGRADED.md
+Untitled-1
+model_capabilities.yaml
+Kall_AI_Full_Cycle_Guideline.docx
+Kall_AI_Update_Carousel.pdf
+GitHub\ Profile\ Image.jpeg
